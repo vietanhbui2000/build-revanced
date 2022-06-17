@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Latest compatible version of packages
-# Vanced microG 0.2.24.220220
-# YouTube 17.22.36
-# YouTube Music 5.03.50
+# Latest compatible packages
+# microG v0.2.24.220220
+# YouTube v17.22.36
+# YouTube Music v5.03.50
 
 VMG_VERSION="0.2.24.220220"
 YT_VERSION="17.22.36"
@@ -72,7 +72,7 @@ then
                                $available_patches \
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-nonroot.apk
 else
-    echo "Cannot find YouTube Music base APK, skip compiling"
+    echo "Cannot find YouTube Music base package, skip compiling"
 fi
 
 echo "Done compiling"
