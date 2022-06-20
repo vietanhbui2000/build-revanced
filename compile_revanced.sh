@@ -45,7 +45,8 @@ fi
 
 echo "Preparing"
 mkdir -p build
-available_patches="-i amoled -i minimized-playback -i disable-create-button -i premium-heading -i custom-branding -i disable-shorts-button -i old-quality-layout -i hide-cast-button -i microg-support -i general-ads -i video-ads -i seekbar-tapping -i upgrade-button-remover -i tasteBuilder-remover -i background-play -i exclusive-audio-playback -i codecs-unlock"
+available_patches="-i minimized-playback -i premium-heading -i custom-branding -i old-quality-layout -i microg-support -i general-ads -i video-ads -i seekbar-tapping -i background-play -i exclusive-audio-playback -i codecs-unlock"
+# available_patches="-i amoled -i minimized-playback -i disable-create-button -i premium-heading -i custom-branding -i disable-shorts-button -i old-quality-layout -i hide-cast-button -i microg-support -i general-ads -i video-ads -i seekbar-tapping -i upgrade-button-remover -i tasteBuilder-remover -i background-play -i exclusive-audio-playback -i codecs-unlock"
 
 echo "Compiling YouTube"
 if [ -f "com.google.android.youtube.apk" ]
