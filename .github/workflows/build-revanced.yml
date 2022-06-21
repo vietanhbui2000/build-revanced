@@ -19,7 +19,7 @@ jobs:
     - name: Setup Java
       uses: actions/setup-java@v3.3.0
       with:
-        distribution: "adopt"
+        distribution: "zulu"
         java-version: "17"
 
     - name: Download base packages
