@@ -2,11 +2,11 @@
 
 # Latest compatible packages
 # microG v0.2.24.220220
-# YouTube v17.23.35
+# YouTube v17.22.36
 # YouTube Music v5.03.50
 
 VMG_VERSION="0.2.24.220220"
-YT_VERSION="17.23.35"
+YT_VERSION="17.22.36"
 YTM_VERSION="5.03.50"
 
 echo "Declaring artifacts"
