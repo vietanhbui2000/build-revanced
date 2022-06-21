@@ -2,11 +2,11 @@
 
 # Latest compatible packages
 # microG v0.2.24.220220
-# YouTube v17.22.36
+# YouTube v17.23.35
 # YouTube Music v5.03.50
 
 VMG_VERSION="0.2.24.220220"
-YT_VERSION="17.22.36"
+YT_VERSION="17.23.35"
 YTM_VERSION="5.03.50"
 
 echo "Declaring artifacts"
@@ -20,6 +20,11 @@ artifacts["apkeep"]="EFForg/apkeep apkeep-x86_64-unknown-linux-gnu"
 get_artifact_download_url ()
 {
     local api_url="https://api.github.com/repos/$1/releases/latest"
+    if [ "$2" = "revanced-cli" ]; then
+        api_url="https://api.github.com/repos/$1/releases/tags/v1.4.5"
+    elif [ "$2" = "revanced-patches" ]; then
+        api_url="https://api.github.com/repos/$1/releases/tags/v1.8.1"
+    fi
     local result=$(curl $api_url | jq ".assets[] | select(.name | contains(\"$2\") and contains(\"$3\") and (contains(\".sig\") | not)) | .browser_download_url")
     echo ${result:1:-1}
 }
