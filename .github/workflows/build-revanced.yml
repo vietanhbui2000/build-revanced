@@ -21,6 +21,7 @@ jobs:
       with:
         distribution: "zulu"
         java-version: "17"
+        java-package: jdk
 
     - name: Download base packages
       uses: robinraju/release-downloader@v1.3
