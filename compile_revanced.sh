@@ -55,7 +55,7 @@ then
                                -a com.google.android.youtube.apk -o build/revanced-root.apk
     echo "Compile non-root package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
-                               -i minimized-playback -i premium-heading -i custom-branding -i old-quality-layout -i microg-support -i general-ads -i video-ads -i seekbar-tapping \
+                               -e disable-fullscreen-panels -e disable-create-button -e amoled -e disable-shorts-button -e hide-cast-button \
                                -a com.google.android.youtube.apk -o build/revanced-nonroot.apk
 else
     echo "Cannot find YouTube base package, skip compiling"
@@ -70,7 +70,7 @@ then
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-root.apk
     echo "Compile non-root package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
-                               -i background-play -i exclusive-audio-playback -i codecs-unlock \
+                               -e upgrade-button-remover -e tasteBuilder-remover \
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-nonroot.apk
 else
     echo "Cannot find YouTube Music base package, skip compiling"
