@@ -45,18 +45,17 @@ fi
 
 echo "Preparing"
 mkdir -p build
-available_patches="-i minimized-playback -i premium-heading -i custom-branding -i old-quality-layout -i microg-support -i general-ads -i video-ads -i seekbar-tapping -i background-play -i exclusive-audio-playback -i codecs-unlock"
-# available_patches="-i amoled -i minimized-playback -i disable-create-button -i premium-heading -i custom-branding -i disable-shorts-button -i old-quality-layout -i hide-cast-button -i microg-support -i general-ads -i video-ads -i seekbar-tapping -i upgrade-button-remover -i tasteBuilder-remover -i background-play -i exclusive-audio-playback -i codecs-unlock"
 
 echo "Compiling YouTube"
 if [ -f "com.google.android.youtube.apk" ]
 then
     echo "Compiling root package"
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --install \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --mount \
+                               -e microg-support \
                                -a com.google.android.youtube.apk -o build/revanced-root.apk
     echo "Compile non-root package"
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --install \
-                               $available_patches \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar  \
+                               -e minimized-playback -e premium-heading -e custom-branding -e old-quality-layout -e microg-support -e general-ads -e video-ads -e seekbar-tapping
                                -a com.google.android.youtube.apk -o build/revanced-nonroot.apk
 else
     echo "Cannot find YouTube base package, skip compiling"
@@ -66,11 +65,12 @@ echo "Compiling YouTube Music"
 if [ -f "com.google.android.apps.youtube.music.apk" ]
 then
     echo "Compiling root package"
-    java -jar revanced-cli.jar -b revanced-patches.jar --install \
+    java -jar revanced-cli.jar -b revanced-patches.jar --mount \
+                               -e microg-support \
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-root.apk
     echo "Compile non-root package"
-    java -jar revanced-cli.jar -b revanced-patches.jar --install \
-                               $available_patches \
+    java -jar revanced-cli.jar -b revanced-patches.jar \
+                               -e background-play -e exclusive-audio-playback -e codecs-unlock
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-nonroot.apk
 else
     echo "Cannot find YouTube Music base package, skip compiling"
