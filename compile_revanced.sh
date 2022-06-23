@@ -20,11 +20,6 @@ artifacts["apkeep"]="EFForg/apkeep apkeep-x86_64-unknown-linux-gnu"
 get_artifact_download_url ()
 {
     local api_url="https://api.github.com/repos/$1/releases/latest"
-    if [ "$2" = "revanced-cli" ]; then
-        api_url="https://api.github.com/repos/$1/releases/tags/v1.4.5"
-    elif [ "$2" = "revanced-patches" ]; then
-        api_url="https://api.github.com/repos/$1/releases/tags/v1.8.1"
-    fi
     local result=$(curl $api_url | jq ".assets[] | select(.name | contains(\"$2\") and contains(\"$3\") and (contains(\".sig\") | not)) | .browser_download_url")
     echo ${result:1:-1}
 }
