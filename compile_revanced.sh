@@ -1,15 +1,13 @@
 #!/bin/bash
 
 # Latest compatible packages
-# microG v0.2.24.220220
-# YouTube v17.24.34
-# YouTube Music v5.03.50
-
 VMG_VERSION="0.2.24.220220"
-YT_VERSION="17.24.34"
+YT_VERSION="17.25.34"
 YTM_VERSION="5.03.50"
 
-echo "Declaring artifacts"
+echo "Declaring variables and their attributes"
+excluded_patches=./excluded_patches.md
+declare -a excluded_patches
 declare -A artifacts
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
@@ -24,6 +22,13 @@ get_artifact_download_url ()
     echo ${result:1:-1}
 }
 
+echo "Cleaning up"
+if [[ "$1" == "clean" ]]
+    then
+    rm -f revanced-cli.jar revanced-integrations.apk revanced-patches.jar
+    exit
+fi
+
 echo "Fetching dependencies"
 for artifact in "${!artifacts[@]}"
 do
@@ -34,28 +39,35 @@ do
     fi
 done
 
-echo "Fetching MicroG"
+echo "Fetching microG"
 chmod +x apkeep
 if [ ! -f "vanced-microG.apk" ]
 then
-    echo "Downloading microG"
-    ./apkeep -a com.mgoogle.android.gms@$VMG_VERSION .
+    echo "Downloading Vanced microG"
+    ./apkeep -a com.mgoogle.android.gms@${VMG_VERSION} .
     mv com.mgoogle.android.gms@$VMG_VERSION.apk vanced-microG.apk
 fi
 
 echo "Preparing"
 mkdir -p build
+if grep -q '^[^#]' $excluded_patches
+then
+    while read -r patches
+    do 
+        excluded_patches+=("-e $patches")
+    done < <(grep '^[^#]' $excluded_patches)
+fi
 
 echo "Compiling YouTube"
 if [ -f "com.google.android.youtube.apk" ]
 then
     echo "Compiling root package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --mount \
-                               -e microg-support \
+                               -e microg-support ${excluded_patches[@]} \
                                -a com.google.android.youtube.apk -o build/revanced-root.apk
     echo "Compile non-root package"
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
-                               -e disable-fullscreen-panels -e disable-create-button -e amoled -e disable-shorts-button -e hide-cast-button \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar  \
+                               ${excluded_patches[@]} \
                                -a com.google.android.youtube.apk -o build/revanced-nonroot.apk
 else
     echo "Cannot find YouTube base package, skip compiling"
@@ -66,11 +78,11 @@ if [ -f "com.google.android.apps.youtube.music.apk" ]
 then
     echo "Compiling root package"
     java -jar revanced-cli.jar -b revanced-patches.jar --mount \
-                               -e microg-support \
+                               -e microg-support ${excluded_patches[@]} \
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-root.apk
     echo "Compile non-root package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
-                               -e upgrade-button-remover -e tasteBuilder-remover \
+                               ${excluded_patches[@]} \
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-nonroot.apk
 else
     echo "Cannot find YouTube Music base package, skip compiling"
