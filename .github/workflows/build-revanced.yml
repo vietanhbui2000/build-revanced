@@ -42,7 +42,7 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         draft: true
-        title: "v${{ env.date_now }}"
+        title: "r${{ env.date_now }}"
         files: |
           build/*.apk
           vanced-microG.apk
