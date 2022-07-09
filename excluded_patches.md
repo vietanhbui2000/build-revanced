@@ -1,1 +1,12 @@
-
+amoled
+disable-create-button
+disable-fullscreen-panels
+hide-cast-button
+hide-shorts-button
+hide-autoplay-button
+hide-infocard-suggestions
+hide-watermark
+custom-playback-speed
+hdr-max-brightness
+upgrade-button-remover
+tasteBuilder-remover
