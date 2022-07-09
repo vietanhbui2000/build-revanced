@@ -6,6 +6,7 @@ hide-shorts-button
 hide-autoplay-button
 hide-infocard-suggestions
 hide-watermark
+fenster-swipe-controls
 custom-playback-speed
 hdr-max-brightness
 upgrade-button-remover
