@@ -6,7 +6,7 @@ YT_VERSION="17.25.34"
 YTM_VERSION="5.03.50"
 
 echo "Declaring variables and their attributes"
-excluded_patches=./excluded_patches.md
+revanced_patches=./revanced_patches.md
 declare -a excluded_patches
 declare -A artifacts
 
@@ -50,12 +50,12 @@ fi
 
 echo "Preparing"
 mkdir -p build
-if grep -q '^[^#]' $excluded_patches
+if grep -q '^[^#]' $revanced_patches
 then
     while read -r patches
     do 
         excluded_patches+=("-e $patches")
-    done < <(grep '^[^#]' $excluded_patches)
+    done < <(grep '^[^#]' $revanced_patches)
 fi
 
 echo "Compiling YouTube"
