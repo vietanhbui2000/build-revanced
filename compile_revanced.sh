@@ -2,7 +2,7 @@
 
 # Latest compatible packages
 VMG_VERSION="0.2.24.220220"
-YT_VERSION="17.25.34"
+YT_VERSION="17.26.35"
 YTM_VERSION="5.03.50"
 
 echo "Declaring variables and their attributes"
