@@ -1,4 +1,5 @@
 amoled
+enable-wide-searchbar
 disable-create-button
 disable-fullscreen-panels
 hide-cast-button
@@ -6,8 +7,10 @@ hide-shorts-button
 hide-autoplay-button
 hide-infocard-suggestions
 hide-watermark
+autorepeat-by-default
 fenster-swipe-controls
 custom-playback-speed
 hdr-max-brightness
+enable-debugging
 upgrade-button-remover
 tasteBuilder-remover
