@@ -1,3 +1,4 @@
+# All patches will be included in the build by default. Put patches below this line to exclude them.
 amoled
 enable-wide-searchbar
 disable-create-button
