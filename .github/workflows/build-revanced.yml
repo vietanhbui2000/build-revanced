@@ -3,7 +3,7 @@
 #            n0k0m3 | https://github.com/n0k0m3               #
 ###############################################################
 
-name: Build Revanced
+name: Build ReVanced
 
 on:
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
         fileName: "*"
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Compile Revanced
+    - name: Compile ReVanced
       run: |
         ./compile_revanced.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
