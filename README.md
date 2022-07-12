@@ -1,10 +1,10 @@
-# Build Revanced
+# Build ReVanced
 
-Build Revanced using GitHub Actions.
+Build ReVanced using GitHub Actions.
 
 ## Build status
 
-![Build Revanced](https://github.com/vietanhbui2000/build-revanced/workflows/Build%20Revanced/badge.svg)
+![Build ReVanced](https://github.com/vietanhbui2000/build-revanced/workflows/Build%20ReVanced/badge.svg)
 
 ## Credits
 
