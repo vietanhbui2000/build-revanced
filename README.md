@@ -4,7 +4,7 @@ Build ReVanced using GitHub Actions.
 
 ## Build status
 
-![Build ReVanced](https://github.com/vietanhbui2000/build-revanced/workflows/Build%20ReVanced/badge.svg)
+[![Build ReVanced](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-revanced.yml/badge.svg)](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-revanced.yml)
 
 ## Credits
 
