@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# Latest compatible packages
 VMG_VERSION="0.2.24.220220"
-YT_VERSION="17.26.35"
-YTM_VERSION="5.03.50"
 
 echo "Declaring variables and their attributes"
 revanced_patches=./revanced_patches.md
@@ -15,11 +12,12 @@ artifacts["revanced-integrations.apk"]="revanced/revanced-integrations app-relea
 artifacts["revanced-patches.jar"]="revanced/revanced-patches revanced-patches .jar"
 artifacts["apkeep"]="EFForg/apkeep apkeep-x86_64-unknown-linux-gnu"
 
-get_artifact_download_url ()
+get_artifact_download_url()
 {
-    local api_url="https://api.github.com/repos/$1/releases/latest"
-    local result=$(curl $api_url | jq ".assets[] | select(.name | contains(\"$2\") and contains(\"$3\") and (contains(\".sig\") | not)) | .browser_download_url")
-    echo ${result:1:-1}
+    local api_url result
+    api_url="https://api.github.com/repos/$1/releases/latest"
+    result=$(curl -s $api_url | jq ".assets[] | select(.name | contains(\"$2\") and contains(\"$3\") and (contains(\".sig\") | not)) | .browser_download_url")
+    echo "${result:1:-1}"
 }
 
 echo "Cleaning up"
@@ -32,10 +30,10 @@ fi
 echo "Fetching dependencies"
 for artifact in "${!artifacts[@]}"
 do
-    if [ ! -f $artifact ]
+    if [ ! -f "$artifact" ]
     then
         echo "Downloading $artifact"
-        curl -L -o $artifact $(get_artifact_download_url ${artifacts[$artifact]})
+        curl -sLo "$artifact" $(get_artifact_download_url ${artifacts[$artifact]})
     fi
 done
 
@@ -53,7 +51,7 @@ mkdir -p build
 if grep -q '^[^#]' $revanced_patches
 then
     while read -r patches
-    do 
+    do
         excluded_patches+=("-e $patches")
     done < <(grep '^[^#]' $revanced_patches)
 fi
@@ -66,7 +64,7 @@ then
                                -e microg-support ${excluded_patches[@]} \
                                -a com.google.android.youtube.apk -o build/revanced-root.apk
     echo "Compile non-root package"
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar  \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                ${excluded_patches[@]} \
                                -a com.google.android.youtube.apk -o build/revanced-nonroot.apk
 else
