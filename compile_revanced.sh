@@ -63,7 +63,7 @@ then
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --mount \
                                -e microg-support ${excluded_patches[@]} \
                                -a com.google.android.youtube.apk -o build/revanced-root.apk
-    echo "Compile non-root package"
+    echo "Compiling non-root package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                ${excluded_patches[@]} \
                                -a com.google.android.youtube.apk -o build/revanced-nonroot.apk
@@ -78,7 +78,7 @@ then
     java -jar revanced-cli.jar -b revanced-patches.jar --mount \
                                -e microg-support ${excluded_patches[@]} \
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-root.apk
-    echo "Compile non-root package"
+    echo "Compiling non-root package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
                                ${excluded_patches[@]} \
                                -a com.google.android.apps.youtube.music.apk -o build/revanced-music-nonroot.apk
