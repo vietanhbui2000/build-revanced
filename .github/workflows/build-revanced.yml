@@ -25,6 +25,7 @@ jobs:
 
     - name: Download base packages
       run: |
+        chmod +x uptodown_download.sh
         ./uptodown_download.sh
 
     - name: Compile ReVanced
