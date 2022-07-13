@@ -24,12 +24,8 @@ jobs:
         java-package: jdk
 
     - name: Download base packages
-      uses: robinraju/release-downloader@v1.3
-      with:
-        repository: ${{ github.repository }}
-        tag: "base"
-        fileName: "*"
-        token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ./uptodown_download.sh
 
     - name: Compile ReVanced
       run: |
