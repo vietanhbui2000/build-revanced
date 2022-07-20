@@ -14,5 +14,6 @@ custom-playback-speed
 swipe-controls
 hdr-auto-brightness
 force-vp9-codec
+compact-header
 upgrade-button-remover
 tasteBuilder-remover
