@@ -1,4 +1,4 @@
-# All patches will be included in the build by default. Put patches below this line to exclude them.
+# EXCLUDE PATCHES
 amoled
 enable-debugging
 enable-wide-searchbar
@@ -9,11 +9,29 @@ hide-cast-button
 hide-shorts-button
 hide-infocard-suggestions
 hide-watermark
-autorepeat-by-default
+always-autorepeat
 custom-playback-speed
 swipe-controls
-hdr-auto-brightness
 force-vp9-codec
 compact-header
+# INCLUDE PATCHES
+general-ads
+video-ads
+premium-heading
+custom-branding
+minimized-playback
+seekbar-tapping
+old-quality-layout
+remember-video-quality
+hdr-auto-brightness
+return-youtube-dislike
+sponsorblock
+music-microg-support
+music-video-ads
+background-play
+minimized-playback-music
+exclusive-audio-playback
+codecs-unlock
+hide-get-premium
 upgrade-button-remover
 tasteBuilder-remover
