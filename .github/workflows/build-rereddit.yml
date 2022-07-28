@@ -1,0 +1,44 @@
+###############################################################
+# Author(s): Việt Anh Bùi | https://github.com/vietanhbui2000 #
+#            n0k0m3 | https://github.com/n0k0m3               #
+###############################################################
+
+name: Build ReReddit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Setup Java
+      uses: actions/setup-java@v3.3.0
+      with:
+        distribution: "zulu"
+        java-version: "17"
+        java-package: jdk
+
+    - name: Download base package
+      run: |
+        chmod +x reddit_download.sh
+        ./reddit_download.sh
+
+    - name: Compile ReReddit
+      run: |
+        ./compile_rereddit.sh
+        echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+    - name: Upload package
+      uses: marvinpinto/action-automatic-releases@v1.2.1
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        draft: true
+        title: "r${{ env.date_now }}"
+        files: |
+          rereddit/*.apk
