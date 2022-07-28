@@ -67,7 +67,7 @@ fi
 echo "Preparing"
 mkdir -p revanced
 
-echo "Compiling YouTube"
+echo "Compiling ReVanced"
 if [ -f "com.google.android.youtube.apk" ]
 then
     echo "Compiling root package"
@@ -82,7 +82,7 @@ else
     echo "Cannot find YouTube base package, skip compiling"
 fi
 
-echo "Compiling YouTube Music"
+echo "Compiling ReVanced Music"
 if [ -f "com.google.android.apps.youtube.music.apk" ]
 then
     echo "Compiling root package"
