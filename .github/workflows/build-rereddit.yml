@@ -30,6 +30,7 @@ jobs:
 
     - name: Compile ReReddit
       run: |
+        chmod +x compile_rereddit.sh
         ./compile_rereddit.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
