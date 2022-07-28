@@ -42,5 +42,5 @@ jobs:
         draft: true
         title: "r${{ env.date_now }}"
         files: |
-          revanced/*.apk
           Vanced-microG.apk
+          revanced/*.apk
