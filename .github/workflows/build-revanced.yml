@@ -42,4 +42,4 @@ jobs:
         title: "r${{ env.date_now }}"
         files: |
           revanced/*.apk
-          vanced-microG.apk
+          Vanced-microG.apk
