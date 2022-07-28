@@ -35,15 +35,9 @@ jobs:
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
     - name: Sign packages
-      uses: r0adkll/sign-android-release@v1
-      with:
-        releaseDirectory: revanced
-        alias: '${{ secrets.ALIAS }}'
-        keyPassword: '${{ secrets.KEY_PASSWORD }}'
-        keyStorePassword: '${{ secrets.KEY_STORE_PASSWORD }}'
-        signingKeyBase64: '${{ secrets.SIGNING_KEY }}'
-      env:
-        BUILD_TOOLS_VERSION: "30.0.2"
+      run: |
+        chmod +x sign_packages.sh
+        ./sign_packages.sh
 
     - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
@@ -54,4 +48,4 @@ jobs:
         title: "r${{ env.date_now }}"
         files: |
           vanced-microg.apk
-          revanced/*.apk
+          revanced/release/*.apk
