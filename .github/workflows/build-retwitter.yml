@@ -23,11 +23,6 @@ jobs:
         java-version: "17"
         java-package: jdk
 
-    - name: Download base package
-      run: |
-        chmod +x twitter_download.sh
-        ./twitter_download.sh
-
     - name: Compile ReTwitter
       run: |
         chmod +x compile_retwitter.sh
