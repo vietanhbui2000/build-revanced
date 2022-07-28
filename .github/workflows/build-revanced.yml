@@ -38,7 +38,6 @@ jobs:
       uses: r0adkll/sign-android-release@v1
       with:
         releaseDirectory: revanced
-        output: revanced/release
         alias: '${{ secrets.ALIAS }}'
         keyPassword: '${{ secrets.KEY_PASSWORD }}'
         keyStorePassword: '${{ secrets.KEY_STORE_PASSWORD }}'
@@ -55,4 +54,4 @@ jobs:
         title: "r${{ env.date_now }}"
         files: |
           vanced-microg.apk
-          revanced/release/*.apk
+          revanced/*.apk
