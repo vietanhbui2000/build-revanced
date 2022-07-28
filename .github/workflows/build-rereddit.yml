@@ -42,4 +42,4 @@ jobs:
         draft: true
         title: "r${{ env.date_now }}"
         files: |
-          rereddit/rereddit.apk
+          rereddit/*.apk
