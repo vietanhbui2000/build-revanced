@@ -40,7 +40,7 @@ then
     echo "Compiling package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
                                -i general-reddit-ads \
-                               -a com.reddit.frontpage.apk -o rereddit.apk
+                               -a com.reddit.frontpage.apk -o rereddit/rereddit.apk
 else
     echo "Cannot find Reddit base package, skip compiling"
 fi
