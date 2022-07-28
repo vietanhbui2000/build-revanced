@@ -54,11 +54,11 @@ done
 
 echo "Fetching microG"
 chmod +x apkeep
-if [ ! -f "vanced-microG.apk" ]
+if [ ! -f "Vanced-microG.apk" ]
 then
     echo "Downloading Vanced microG"
     ./apkeep -a com.mgoogle.android.gms@${VMG_VERSION} .
-    mv com.mgoogle.android.gms@$VMG_VERSION.apk vanced-microG.apk
+    mv com.mgoogle.android.gms@$VMG_VERSION.apk Vanced-microG.apk
 fi
 
 [[ ! -z "$excluded_patches" ]] && populate_patches "-e" "$excluded_patches"
