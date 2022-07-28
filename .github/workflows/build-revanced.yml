@@ -30,6 +30,7 @@ jobs:
 
     - name: Compile ReVanced
       run: |
+        chmod +x compile_revanced.sh
         ./compile_revanced.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
