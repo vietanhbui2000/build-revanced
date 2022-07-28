@@ -15,10 +15,10 @@ swipe-controls
 force-vp9-codec
 compact-header
 # INCLUDE PATCHES
-general-ads
-video-ads
 premium-heading
 custom-branding
+general-ads
+video-ads
 minimized-playback
 seekbar-tapping
 old-quality-layout
@@ -29,8 +29,8 @@ sponsorblock
 music-microg-support
 music-video-ads
 background-play
-minimized-playback-music
 exclusive-audio-playback
+minimized-playback-music
 codecs-unlock
 hide-get-premium
 upgrade-button-remover
