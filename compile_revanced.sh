@@ -65,7 +65,7 @@ fi
 [[ ! -z "$included_patches" ]] && populate_patches "-i" "$included_patches"
 
 echo "Preparing"
-mkdir -p build
+mkdir -p revanced
 
 echo "Compiling YouTube"
 if [ -f "com.google.android.youtube.apk" ]
@@ -73,11 +73,11 @@ then
     echo "Compiling root package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --mount \
                                -e microg-support ${patches[@]} \
-                               -a com.google.android.youtube.apk -o build/revanced-root.apk
+                               -a com.google.android.youtube.apk -o revanced/revanced-root.apk
     echo "Compiling non-root package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                ${patches[@]} \
-                               -a com.google.android.youtube.apk -o build/revanced-nonroot.apk
+                               -a com.google.android.youtube.apk -o revanced/revanced-nonroot.apk
 else
     echo "Cannot find YouTube base package, skip compiling"
 fi
@@ -88,11 +88,11 @@ then
     echo "Compiling root package"
     java -jar revanced-cli.jar -b revanced-patches.jar --mount \
                                -e microg-support ${patches[@]} \
-                               -a com.google.android.apps.youtube.music.apk -o build/revanced-music-root.apk
+                               -a com.google.android.apps.youtube.music.apk -o revanced/revanced-music-root.apk
     echo "Compiling non-root package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
                                ${patches[@]} \
-                               -a com.google.android.apps.youtube.music.apk -o build/revanced-music-nonroot.apk
+                               -a com.google.android.apps.youtube.music.apk -o revanced/revanced-music-nonroot.apk
 else
     echo "Cannot find YouTube Music base package, skip compiling"
 fi
