@@ -34,6 +34,18 @@ jobs:
         ./compile_revanced.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
+    - name: Sign packages
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: revanced
+        output: revanced/release
+        alias: '${{ secrets.ALIAS }}'
+        keyPassword: '${{ secrets.KEY_PASSWORD }}'
+        keyStorePassword: '${{ secrets.KEY_STORE_PASSWORD }}'
+        signingKeyBase64: '${{ secrets.SIGNING_KEY }}'
+      env:
+        BUILD_TOOLS_VERSION: "30.0.2"
+
     - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
@@ -43,4 +55,4 @@ jobs:
         title: "r${{ env.date_now }}"
         files: |
           vanced-microg.apk
-          revanced/*.apk
+          revanced/release/*.apk
