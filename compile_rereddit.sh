@@ -4,7 +4,6 @@ echo "Declaring variables and their attributes"
 declare -A artifacts
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
-artifacts["revanced-integrations.apk"]="revanced/revanced-integrations app-release-unsigned .apk"
 artifacts["revanced-patches.jar"]="revanced/revanced-patches revanced-patches .jar"
 
 get_artifact_download_url()
@@ -39,9 +38,9 @@ echo "Compiling ReReddit"
 if [ -f "com.reddit.frontpage.apk" ]
 then
     echo "Compiling package"
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
+    java -jar revanced-cli.jar -b revanced-patches.jar \
                                -i general-reddit-ads \
-                               -a com.reddit.frontpage.apk -o rereddit/rereddit.apk
+                               -a com.reddit.frontpage.apk -o rereddit.apk
 else
     echo "Cannot find Reddit base package, skip compiling"
 fi
