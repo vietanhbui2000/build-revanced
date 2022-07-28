@@ -17,7 +17,7 @@ get_artifact_download_url()
 echo "Cleaning up"
 if [[ "$1" == "clean" ]]
     then
-    rm -f revanced-cli.jar revanced-integrations.apk revanced-patches.jar
+    rm -f revanced-cli.jar revanced-patches.jar
     exit
 fi
 
@@ -38,7 +38,7 @@ echo "Compiling ReReddit"
 if [ -f "com.reddit.frontpage.apk" ]
 then
     echo "Compiling package"
-    java -jar revanced-cli.jar -b revanced-patches.jar \
+    java -jar revanced-cli.jar -b revanced-patches.jar -r \
                                -i general-reddit-ads \
                                -a com.reddit.frontpage.apk -o rereddit/rereddit.apk
 else
