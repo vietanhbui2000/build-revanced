@@ -34,6 +34,11 @@ jobs:
         ./compile_rereddit.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
+    - name: Sign packages
+      run: |
+        chmod +x sign_packages.sh
+        ./sign_packages.sh
+
     - name: Upload package
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
@@ -42,4 +47,4 @@ jobs:
         draft: true
         title: "r${{ env.date_now }}"
         files: |
-          rereddit/*.apk
+          rereddit/release/*.apk
