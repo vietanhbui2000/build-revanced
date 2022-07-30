@@ -70,14 +70,10 @@ mkdir -p revanced
 echo "Compiling ReVanced"
 if [ -f "com.google.android.youtube.apk" ]
 then
-    echo "Compiling root package"
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --mount \
-                               -e microg-support ${patches[@]} \
-                               -a com.google.android.youtube.apk -o revanced/revanced-root.apk
-    echo "Compiling non-root package"
+    echo "Compiling package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                ${patches[@]} \
-                               -a com.google.android.youtube.apk -o revanced/revanced-nonroot.apk
+                               -a com.google.android.youtube.apk -o revanced/revanced.apk
 else
     echo "Cannot find YouTube base package, skip compiling"
 fi
@@ -85,14 +81,10 @@ fi
 echo "Compiling ReVanced Music"
 if [ -f "com.google.android.apps.youtube.music.apk" ]
 then
-    echo "Compiling root package"
-    java -jar revanced-cli.jar -b revanced-patches.jar --mount \
-                               -e microg-support ${patches[@]} \
-                               -a com.google.android.apps.youtube.music.apk -o revanced/revanced-music-root.apk
-    echo "Compiling non-root package"
+    echo "Compiling package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
                                ${patches[@]} \
-                               -a com.google.android.apps.youtube.music.apk -o revanced/revanced-music-nonroot.apk
+                               -a com.google.android.apps.youtube.music.apk -o revanced/revanced-music.apk
 else
     echo "Cannot find YouTube Music base package, skip compiling"
 fi
