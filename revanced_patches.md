@@ -13,6 +13,7 @@ force-vp9-codec
 always-autorepeat
 enable-debugging
 custom-playback-speed
+hide-infocard-suggestions
 tasteBuilder-remover
 compact-header
 # INCLUDE PATCHES
@@ -26,7 +27,6 @@ hdr-auto-brightness
 remember-video-quality
 video-ads
 general-ads
-hide-infocard-suggestions
 minimized-playback-music
 hide-get-premium
 upgrade-button-remover
