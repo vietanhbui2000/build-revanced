@@ -23,6 +23,7 @@ return-youtube-dislike
 premium-heading
 old-quality-layout
 sponsorblock
+microg-support
 hdr-auto-brightness
 remember-video-quality
 video-ads
