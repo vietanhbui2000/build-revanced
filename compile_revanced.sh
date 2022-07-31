@@ -4,11 +4,11 @@ VMG_VERSION="0.2.24.220220"
 
 patches_file=./revanced_patches.md
 
-excluded_start="$(grep -n -m1 'EXCLUDE PATCHES' "$patches_file" | cut -d':' -f1)"
 included_start="$(grep -n -m1 'INCLUDE PATCHES' "$patches_file" | cut -d':' -f1)"
+excluded_start="$(grep -n -m1 'EXCLUDE PATCHES' "$patches_file" | cut -d':' -f1)"
 
-excluded_patches="$(tail -n +$excluded_start $patches_file | head -n "$(( included_start - excluded_start ))" | grep '^[^#]')"
-included_patches="$(tail -n +$included_start $patches_file | grep '^[^#]')"
+included_patches="$(tail -n +$included_start $patches_file | head -n "$(( excluded_start - included_start ))" | grep '^[^#[:blank:]]')"
+excluded_patches="$(tail -n +$excluded_start $patches_file | grep '^[^#[:blank:]]')"
 
 echo "Declaring variables and their attributes"
 declare -a patches
@@ -61,8 +61,8 @@ then
     mv com.mgoogle.android.gms@${VMG_VERSION}.apk vanced-microg.apk
 fi
 
-[[ ! -z "$excluded_patches" ]] && populate_patches "-e" "$excluded_patches"
 [[ ! -z "$included_patches" ]] && populate_patches "-i" "$included_patches"
+[[ ! -z "$excluded_patches" ]] && populate_patches "-e" "$excluded_patches"
 
 echo "Preparing"
 mkdir -p revanced
