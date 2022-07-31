@@ -1,22 +1,3 @@
-# EXCLUDE PATCHES
-swipe-controls
-amoled
-disable-create-button
-hide-cast-button
-hide-autoplay-button
-custom-branding
-disable-fullscreen-panels
-hide-shorts-button
-hide-watermark
-enable-wide-searchbar
-force-vp9-codec
-custom-video-buffer
-always-autorepeat
-enable-debugging
-custom-playback-speed
-hide-infocard-suggestions
-tasteBuilder-remover
-compact-header
 # INCLUDE PATCHES
 seekbar-tapping
 minimized-playback
@@ -38,3 +19,22 @@ music-microg-support
 music-video-ads
 codecs-unlock
 exclusive-audio-playback
+# EXCLUDE PATCHES
+swipe-controls
+amoled
+disable-create-button
+hide-cast-button
+hide-autoplay-button
+custom-branding
+disable-fullscreen-panels
+hide-shorts-button
+hide-watermark
+enable-wide-searchbar
+force-vp9-codec
+custom-video-buffer
+always-autorepeat
+enable-debugging
+custom-playback-speed
+hide-infocard-suggestions
+tasteBuilder-remover
+compact-header
