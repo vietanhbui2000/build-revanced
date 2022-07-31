@@ -1,4 +1,4 @@
-# INCLUDE PATCHES
+# INCLUDED PATCHES
 seekbar-tapping
 minimized-playback
 return-youtube-dislike
@@ -19,7 +19,7 @@ music-microg-support
 music-video-ads
 codecs-unlock
 exclusive-audio-playback
-# EXCLUDE PATCHES
+# EXCLUDED PATCHES
 swipe-controls
 amoled
 disable-create-button
