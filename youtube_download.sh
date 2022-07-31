@@ -17,7 +17,7 @@ do
     if [ ! -f $apk ]
     then
         echo "Downloading $apk"
-        version=$(jq -r ".\"$apk\"" <versions.json)
+        version=$(jq -r ".\"$apk\"" <youtube_versions.json)
         curl -sLo $apk "$(get_apk_download_url ${apks[$apk]} "$version")"
     fi
 done
