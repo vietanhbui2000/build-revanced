@@ -10,6 +10,7 @@ hide-shorts-button
 hide-watermark
 enable-wide-searchbar
 force-vp9-codec
+custom-video-buffer
 always-autorepeat
 enable-debugging
 custom-playback-speed
@@ -24,6 +25,7 @@ premium-heading
 old-quality-layout
 sponsorblock
 microg-support
+settings
 hdr-auto-brightness
 remember-video-quality
 video-ads
