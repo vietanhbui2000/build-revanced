@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TWITTER_VERSION="9.52.0-release.0"
+TWITTER_VERSION="V9.53.0-release.0"
 
 echo "Declaring variables and their attributes"
 declare -A artifacts
