@@ -34,7 +34,7 @@ jobs:
         chmod +x sign_packages.sh
         ./sign_packages.sh
 
-    - name: Upload package
+    - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
