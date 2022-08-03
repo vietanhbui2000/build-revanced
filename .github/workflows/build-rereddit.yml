@@ -23,6 +23,10 @@ jobs:
         java-version: "17"
         java-package: jdk
 
+    - name: Download base packages
+      run: |
+        python reddit_download.py
+
     - name: Compile ReReddit
       run: |
         chmod +x compile_rereddit.sh
