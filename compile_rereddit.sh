@@ -2,7 +2,7 @@
 
 REDDIT_VERSION="2022.27.0"
 
-echo "Declaring variables and their attributes"
+echo "Declaring variables"
 declare -A artifacts
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
