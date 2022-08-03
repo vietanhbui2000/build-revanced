@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Declaring variables"
 declare -A apks
 
 apks["com.google.android.youtube.apk"]="https://youtube.en.uptodown.com/android/apps/16906/versions"
