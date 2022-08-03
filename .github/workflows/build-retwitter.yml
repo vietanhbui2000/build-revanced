@@ -23,6 +23,10 @@ jobs:
         java-version: "17"
         java-package: jdk
 
+    - name: Download base packages
+      run: |
+        python twitter_download.py
+
     - name: Compile ReTwitter
       run: |
         chmod +x compile_retwitter.sh
