@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Declaring variables and their attributes"
+echo "Declaring variables"
 declare -A artifacts
 
 artifacts["uber-apk-signer.jar"]="patrickfav/uber-apk-signer uber-apk-signer .jar"
