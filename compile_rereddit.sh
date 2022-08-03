@@ -1,13 +1,10 @@
 #!/bin/bash
 
-REDDIT_VERSION="2022.27.0"
-
 echo "Declaring variables"
 declare -A artifacts
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
 artifacts["revanced-patches.jar"]="revanced/revanced-patches revanced-patches .jar"
-artifacts["apkeep"]="EFForg/apkeep apkeep-x86_64-unknown-linux-gnu"
 
 get_artifact_download_url()
 {
@@ -33,15 +30,6 @@ do
         curl -sLo "$artifact" $(get_artifact_download_url ${artifacts[$artifact]})
     fi
 done
-
-echo "Fetching Reddit"
-chmod +x apkeep
-if [ ! -f "com.reddit.frontpage.apk" ]
-then
-    echo "Downloading Reddit"
-    ./apkeep -a com.reddit.frontpage@${REDDIT_VERSION} .
-    mv com.reddit.frontpage@${REDDIT_VERSION}.apk com.reddit.frontpage.apk
-fi
 
 echo "Preparing"
 mkdir -p rereddit
