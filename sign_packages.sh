@@ -40,15 +40,11 @@ if [ -d "revanced" ]
 then
     echo "Signing ReVanced"
     java -jar uber-apk-signer.jar --allowResign -a revanced -o revanced/release
-fi
-
-if [ -d "retwitter" ]
+elif [ -d "retwitter" ]
 then
     echo "Signing ReTwitter"
     java -jar uber-apk-signer.jar --allowResign -a retwitter -o retwitter/release
-fi
-
-if [ -d "rereddit" ]
+elif [ -d "rereddit" ]
 then
     echo "Signing ReReddit"
     java -jar uber-apk-signer.jar --allowResign -a rereddit -o rereddit/release
