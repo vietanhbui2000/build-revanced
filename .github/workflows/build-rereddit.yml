@@ -25,16 +25,19 @@ jobs:
 
     - name: Download base packages
       run: |
+        cd rereddit
         python reddit_download.py
 
     - name: Compile ReReddit
       run: |
+        cd rereddit
         chmod +x compile_rereddit.sh
         ./compile_rereddit.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
     - name: Sign packages
       run: |
+        cd rereddit
         chmod +x sign_packages.sh
         ./sign_packages.sh
 
@@ -46,4 +49,4 @@ jobs:
         draft: true
         title: "r${{ env.date_now }}"
         files: |
-          rereddit/release/*.apk
+          rereddit/output/release/*.apk
