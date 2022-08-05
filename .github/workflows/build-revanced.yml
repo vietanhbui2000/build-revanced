@@ -25,19 +25,21 @@ jobs:
 
     - name: Download base packages
       run: |
+        cd revanced
         chmod +x youtube_download.sh
         ./youtube_download.sh
 
     - name: Compile ReVanced
       run: |
+        cd revanced
         chmod +x compile_revanced.sh
         ./compile_revanced.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
     - name: Sign packages
       run: |
-        chmod +x sign_packages.sh
-        ./sign_packages.sh
+        chmod +x revanced/sign_packages.sh
+        ./revanced/sign_packages.sh
 
     - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
@@ -47,5 +49,5 @@ jobs:
         draft: true
         title: "r${{ env.date_now }}"
         files: |
-          vanced-microg.apk
-          revanced/release/*.apk
+          revanced/vanced-microg.apk
+          revanced/output/release/*.apk

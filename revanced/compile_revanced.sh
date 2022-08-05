@@ -65,7 +65,7 @@ fi
 [[ ! -z "$excluded_patches" ]] && populate_patches "-e" "$excluded_patches"
 
 echo "Preparing"
-mkdir -p revanced
+mkdir -p output
 
 echo "Compiling ReVanced"
 if [ -f "com.google.android.youtube.apk" ]
@@ -73,7 +73,7 @@ then
     echo "Compiling package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                ${patches[@]} \
-                               -a com.google.android.youtube.apk -o revanced/revanced.apk
+                               -a com.google.android.youtube.apk -o output/revanced.apk
 else
     echo "Cannot find YouTube base package, skip compiling"
 fi
@@ -84,7 +84,7 @@ then
     echo "Compiling package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
                                ${patches[@]} \
-                               -a com.google.android.apps.youtube.music.apk -o revanced/revanced-music.apk
+                               -a com.google.android.apps.youtube.music.apk -o output/revanced-music.apk
 else
     echo "Cannot find YouTube Music base package, skip compiling"
 fi

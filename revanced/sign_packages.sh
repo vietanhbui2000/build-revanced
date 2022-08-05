@@ -31,23 +31,23 @@ do
 done
 
 echo "Preparing"
-[ -d "revanced" ] && mkdir -p revanced/release
-[ -d "retwitter" ] && mkdir -p retwitter/release
-[ -d "rereddit" ] && mkdir -p rereddit/release
+[ -d "revanced" ] && mkdir -p revanced/output/release
+[ -d "retwitter" ] && mkdir -p retwitter/output/release
+[ -d "rereddit" ] && mkdir -p rereddit/output/release
 
 echo "Signing packages"
-if [ -d "revanced" ]
+if [ -f revanced/output/"revanced.apk" ]
 then
     echo "Signing ReVanced"
-    java -jar uber-apk-signer.jar --allowResign -a revanced -o revanced/release
-elif [ -d "retwitter" ]
+    java -jar uber-apk-signer.jar --allowResign -a revanced/output -o revanced/output/release
+elif [ -f retwitter/output/"retwitter.apk" ]
 then
     echo "Signing ReTwitter"
-    java -jar uber-apk-signer.jar --allowResign -a retwitter -o retwitter/release
-elif [ -d "rereddit" ]
+    java -jar uber-apk-signer.jar --allowResign -a retwitter/output -o retwitter/output/release
+elif [ -f rereddit/output/"rereddit.apk" ]
 then
     echo "Signing ReReddit"
-    java -jar uber-apk-signer.jar --allowResign -a rereddit -o rereddit/release
+    java -jar uber-apk-signer.jar --allowResign -a rereddit/output -o rereddit/output/release
 fi
 
 echo "Done signing"

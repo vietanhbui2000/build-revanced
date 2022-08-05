@@ -32,17 +32,17 @@ do
 done
 
 echo "Preparing"
-mkdir -p rereddit
+mkdir -p output
 
-echo "Compiling ReReddit"
-if [ -f "com.reddit.frontpage.apk" ]
+echo "Compiling ReTwitter"
+if [ -f "com.twitter.android.apk" ]
 then
     echo "Compiling package"
     java -jar revanced-cli.jar -b revanced-patches.jar -r \
-                               -i general-reddit-ads \
-                               -a com.reddit.frontpage.apk -o rereddit/rereddit.apk
+                               -i timeline-ads \
+                               -a com.twitter.android.apk -o output/retwitter.apk
 else
-    echo "Cannot find Reddit base package, skip compiling"
+    echo "Cannot find Twitter base package, skip compiling"
 fi
 
 echo "Done compiling"
