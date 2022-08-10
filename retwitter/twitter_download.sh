@@ -50,8 +50,8 @@ dl_twitter()
     if [ ! -f "$base_apk" ]
     then
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/twitter-inc/twitter/twitter-${last_ver//./-}-release/" \
-                    "APK</span>[^@]*@\([^#]*\)" \
-                    "$base_apk")
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
         echo "Twitter v${last_ver}"
         echo "Downloaded from: [Twitter - APKMirror]($dl_url)"
     fi
