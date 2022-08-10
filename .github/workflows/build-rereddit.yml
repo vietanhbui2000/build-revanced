@@ -26,7 +26,8 @@ jobs:
     - name: Download base packages
       run: |
         cd rereddit
-        python reddit_download.py
+        chmod +x reddit_download.sh
+        ./reddit_download.sh
 
     - name: Compile ReReddit
       run: |
