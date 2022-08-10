@@ -26,7 +26,8 @@ jobs:
     - name: Download base packages
       run: |
         cd retwitter
-        python twitter_download.py
+        chmod +x twitter_download.sh
+        ./twitter_download.sh
 
     - name: Compile ReTwitter
       run: |
