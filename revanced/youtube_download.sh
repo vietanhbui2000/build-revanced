@@ -53,8 +53,8 @@ dl_youtube()
     if [ ! -f "$base_apk" ]
     then
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/google-inc/youtube/youtube-${last_ver//./-}-release/" \
-                    "APK</span>[^@]*@\([^#]*\)" \
-                    "$base_apk")
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
         echo "YouTube v${last_ver}"
         echo "Downloaded from: [YouTube - APKMirror]($dl_url)"
     fi
@@ -80,8 +80,8 @@ dl_youtube-music()
             local regexp_arch='arm64-v8a</div>[^@]*@\([^"]*\)'
         fi
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/google-inc/youtube-music/youtube-music-${last_ver//./-}-release/" \
-                    "$regexp_arch" \
-                    "$base_apk")
+                "$regexp_arch" \
+                "$base_apk")
         echo "YouTube Music (${arch}) v${last_ver}"
         echo "Downloaded from: [YouTube Music (${arch}) - APKMirror]($dl_url)"
     fi
