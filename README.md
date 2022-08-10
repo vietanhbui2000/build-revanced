@@ -11,3 +11,4 @@ Build ReVanced using GitHub Actions.
 ## Credits
 
 - [revanced-build-template](https://github.com/n0k0m3/revanced-build-template) by [n0k0m3](https://github.com/n0k0m3)
+- [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module) by [j-hc](https://github.com/j-hc)
