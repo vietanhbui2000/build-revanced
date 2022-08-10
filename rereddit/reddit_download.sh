@@ -50,8 +50,8 @@ dl_reddit()
     if [ ! -f "$base_apk" ]
     then
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/redditinc/reddit/reddit-${last_ver//./-}-release/" \
-                    "APK</span>[^@]*@\([^#]*\)" \
-                    "$base_apk")
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
         echo "Reddit v${last_ver}"
         echo "Downloaded from: [Reddit - APKMirror]($dl_url)"
     fi
