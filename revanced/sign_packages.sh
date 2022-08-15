@@ -34,6 +34,7 @@ echo "Preparing"
 [ -d "revanced" ] && mkdir -p revanced/output/release
 [ -d "retwitter" ] && mkdir -p retwitter/output/release
 [ -d "rereddit" ] && mkdir -p rereddit/output/release
+[ -d "retiktok" ] && mkdir -p retiktok/output/release
 
 echo "Signing packages"
 if [ -f revanced/output/"revanced.apk" ]
@@ -48,6 +49,10 @@ elif [ -f rereddit/output/"rereddit.apk" ]
 then
     echo "Signing ReReddit"
     java -jar uber-apk-signer.jar --allowResign -a rereddit/output -o rereddit/output/release
+elif [ -f retiktok/output/"retiktok.apk" ]
+then
+    echo "Signing ReTikTok"
+    java -jar uber-apk-signer.jar --allowResign -a retiktok/output -o retiktok/output/release
 fi
 
 echo "Done signing"
