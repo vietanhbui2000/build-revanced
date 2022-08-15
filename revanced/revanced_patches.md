@@ -29,6 +29,7 @@ disable-fullscreen-panels
 hide-shorts-button
 hide-watermark
 enable-wide-searchbar
+tablet-mini-player
 custom-video-buffer
 always-autorepeat
 enable-debugging
