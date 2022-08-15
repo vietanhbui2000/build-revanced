@@ -7,6 +7,7 @@ Build ReVanced using GitHub Actions.
 [![Build ReVanced](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-revanced.yml/badge.svg)](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-revanced.yml)
 [![Build ReTwitter](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-retwitter.yml/badge.svg)](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-retwitter.yml)
 [![Build ReReddit](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-rereddit.yml/badge.svg)](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-rereddit.yml)
+[![Build ReTikTok](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-retiktok.yml/badge.svg)](https://github.com/vietanhbui2000/build-revanced/actions/workflows/build-retiktok.yml)
 
 ## Credits
 
