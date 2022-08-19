@@ -3,7 +3,7 @@
 #            n0k0m3 | https://github.com/n0k0m3               #
 ###############################################################
 
-name: Build ReTikTok
+name: Build ReVanced
 
 on:
   workflow_dispatch:
@@ -23,23 +23,23 @@ jobs:
         java-version: "17"
         java-package: jdk
 
-    - name: Download base packages
+    - name: Download YouTube
       run: |
-        cd retiktok
-        chmod +x tiktok_download.sh
-        ./tiktok_download.sh
+        cd revanced
+        chmod +x dl_youtube.sh
+        ./dl_youtube.sh
 
-    - name: Compile ReTikTok
+    - name: Compile ReVanced
       run: |
-        cd retiktok
-        chmod +x compile_retiktok.sh
-        ./compile_retiktok.sh
+        cd revanced
+        chmod +x compile_revanced.sh
+        ./compile_revanced.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-    - name: Sign packages
+    - name: Sign ReVanced
       run: |
-        chmod +x revanced/sign_packages.sh
-        ./revanced/sign_packages.sh
+        chmod +x revanced/sign_revanced.sh
+        ./revanced/sign_revanced.sh
 
     - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
@@ -49,4 +49,5 @@ jobs:
         draft: true
         title: "r${{ env.date_now }}"
         files: |
-          retiktok/output/release/*.apk
+          revanced/vanced-microg.apk
+          revanced/output/release/*.apk

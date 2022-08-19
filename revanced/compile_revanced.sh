@@ -2,7 +2,7 @@
 
 VMG_VERSION="0.2.24.220220"
 
-patches_file=./revanced_patches.md
+patches_file=./revanced-patches.md
 
 included_start="$(grep -n -m1 'INCLUDED PATCHES' "$patches_file" | cut -d':' -f1)"
 excluded_start="$(grep -n -m1 'EXCLUDED PATCHES' "$patches_file" | cut -d':' -f1)"

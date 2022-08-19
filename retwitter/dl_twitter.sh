@@ -3,7 +3,7 @@
 echo "Declaring variables"
 declare -A apks
 
-apks["com.zhiliaoapp.musically.apk"]=dl_tiktok
+apks["com.twitter.android.apk"]=dl_twitter
 
 WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
 
@@ -38,22 +38,22 @@ dl_apk()
     req "$url" "$output"
 }
 
-dl_tiktok()
+dl_twitter()
 {
-    echo "Downloading TikTok"
+    echo "Downloading Twitter"
     local last_ver
     last_ver="$version"
-    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=tik-tok-including-musical-ly" | get_largest_ver)}"
+    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=twitter" | get_largest_ver)}"
 
     echo "Selected version: ${last_ver}"
-    local base_apk="com.zhiliaoapp.musically.apk"
+    local base_apk="com.twitter.android.apk"
     if [ ! -f "$base_apk" ]
     then
-        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/tik-tok-including-musical-ly-${last_ver//./-}-release/" \
+        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/twitter-inc/twitter/twitter-${last_ver//./-}-release/" \
                 "APK</span>[^@]*@\([^#]*\)" \
                 "$base_apk")
-        echo "TikTok v${last_ver}"
-        echo "Downloaded from: [TikTok - APKMirror]($dl_url)"
+        echo "Twitter v${last_ver}"
+        echo "Downloaded from: [Twitter - APKMirror]($dl_url)"
     fi
 }
 
@@ -62,7 +62,7 @@ do
     if [ ! -f $apk ]
     then
         echo "Downloading $apk"
-        version=$(jq -r ".\"$apk\"" <tiktok_version.json)
+        version=$(jq -r ".\"$apk\"" <dl_twitter-version.json)
         ${apks[$apk]}
     fi
 done
