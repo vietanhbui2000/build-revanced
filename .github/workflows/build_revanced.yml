@@ -23,11 +23,11 @@ jobs:
         java-version: "17"
         java-package: jdk
 
-    - name: Download base packages
+    - name: Download YouTube
       run: |
         cd revanced
-        chmod +x youtube_download.sh
-        ./youtube_download.sh
+        chmod +x dl_youtube.sh
+        ./dl_youtube.sh
 
     - name: Compile ReVanced
       run: |
@@ -36,10 +36,10 @@ jobs:
         ./compile_revanced.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-    - name: Sign packages
+    - name: Sign ReVanced
       run: |
-        chmod +x revanced/sign_packages.sh
-        ./revanced/sign_packages.sh
+        chmod +x revanced/sign_revanced.sh
+        ./revanced/sign_revanced.sh
 
     - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
