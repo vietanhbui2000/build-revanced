@@ -21,6 +21,7 @@ codecs-unlock
 exclusive-audio-playback
 # EXCLUDED PATCHES
 swipe-controls
+downloads
 amoled
 disable-create-button
 hide-cast-button
@@ -30,6 +31,7 @@ hide-shorts-button
 hide-watermark
 enable-wide-searchbar
 tablet-mini-player
+client-spoof
 custom-video-buffer
 always-autorepeat
 enable-debugging
