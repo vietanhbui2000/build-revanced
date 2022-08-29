@@ -31,6 +31,8 @@ do
     fi
 done
 
+revanced-patches="-i general-reddit-ads"
+
 echo "Preparing"
 mkdir -p output
 
@@ -39,7 +41,7 @@ if [ -f "com.reddit.frontpage.apk" ]
 then
     echo "Compiling package"
     java -jar revanced-cli.jar -b revanced-patches.jar -r \
-                               -i general-reddit-ads \
+                               $revanced-patches \
                                -a com.reddit.frontpage.apk -o output/rereddit.apk
 else
     echo "Cannot find Reddit base package, skip compiling"
