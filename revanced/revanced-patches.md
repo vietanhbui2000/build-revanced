@@ -1,16 +1,4 @@
 # INCLUDED PATCHES
-seekbar-tapping
-minimized-playback
-return-youtube-dislike
-premium-heading
-custom-branding
-old-quality-layout
-sponsorblock
-microg-support
-settings
-remember-video-quality
-video-ads
-general-ads
 minimized-playback-music
 hide-get-premium
 upgrade-button-remover
@@ -19,7 +7,21 @@ music-microg-support
 music-video-ads
 codecs-unlock
 exclusive-audio-playback
+seekbar-tapping
+return-youtube-dislike
+premium-heading
+custom-branding
+old-quality-layout
+sponsorblock
+minimized-playback
+microg-support
+settings
+remember-video-quality
+video-ads
+general-ads
 # EXCLUDED PATCHES
+tasteBuilder-remover
+compact-header
 swipe-controls
 downloads
 amoled
@@ -38,5 +40,3 @@ enable-debugging
 custom-playback-speed
 hdr-auto-brightness
 hide-infocard-suggestions
-tasteBuilder-remover
-compact-header
