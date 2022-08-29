@@ -31,6 +31,8 @@ do
     fi
 done
 
+revanced-patches="-i timeline-ads"
+
 echo "Preparing"
 mkdir -p output
 
@@ -39,7 +41,7 @@ if [ -f "com.twitter.android.apk" ]
 then
     echo "Compiling package"
     java -jar revanced-cli.jar -b revanced-patches.jar -r \
-                               -i timeline-ads \
+                               $revanced-patches \
                                -a com.twitter.android.apk -o output/retwitter.apk
 else
     echo "Cannot find Twitter base package, skip compiling"
