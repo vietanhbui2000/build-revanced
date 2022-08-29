@@ -31,7 +31,7 @@ do
     fi
 done
 
-revanced-patches="-i general-reddit-ads"
+revanced-patches="-i premium-icon-reddit -i general-reddit-ads"
 
 echo "Preparing"
 mkdir -p output
