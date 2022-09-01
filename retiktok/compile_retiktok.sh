@@ -31,7 +31,7 @@ do
     fi
 done
 
-revanced-patches="-i tiktok-ads"
+revanced-patches="-i tiktok-download -i tiktok-seekbar -i tiktok-ads"
 
 echo "Preparing"
 mkdir -p output
