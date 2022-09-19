@@ -36,10 +36,16 @@ jobs:
         ./compile_retwitter.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-    - name: Sign ReTwitter
-      run: |
-        chmod +x revanced/sign_revanced.sh
-        ./revanced/sign_revanced.sh
+    - name: Sign packages
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: retwitter/output
+        alias: ${{ secrets.ALIAS }}
+        keyPassword: ${{ secrets.KEY_PASSWORD }}
+        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+      env:
+        BUILD_TOOLS_VERSION: "30.0.2"
 
     - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
@@ -49,4 +55,4 @@ jobs:
         draft: true
         title: "r${{ env.date_now }}"
         files: |
-          retwitter/output/release/*.apk
+          retwitter/output/retwitter-signed.apk
