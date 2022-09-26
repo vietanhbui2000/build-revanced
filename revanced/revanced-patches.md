@@ -33,6 +33,8 @@ disable-fullscreen-panels
 theme
 hide-watermark
 enable-wide-searchbar
+hide-time-and-seekbar
+disable-auto-player-popup-panels
 tablet-mini-player
 disable-auto-captions
 custom-video-buffer
