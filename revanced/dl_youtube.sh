@@ -3,6 +3,7 @@
 echo "Declaring variables"
 declare -A apks
 
+apks["com.mgoogle.android.gms.apk"]=dl_vanced-microg
 apks["com.google.android.youtube.apk"]=dl_youtube
 apks["com.google.android.apps.youtube.music.apk"]=dl_youtube-music
 
@@ -39,6 +40,25 @@ dl_apk()
     url="https://www.apkmirror.com$(req "$url" - | tr '\n' ' ' | sed -n 's;.*href="\(.*key=[^"]*\)">.*;\1;p')"
     url="https://www.apkmirror.com$(req "$url" - | tr '\n' ' ' | sed -n 's;.*href="\(.*key=[^"]*\)">.*;\1;p')"
     req "$url" "$output"
+}
+
+dl_vanced-microg()
+{
+    echo "Downloading Vanced microG"
+    local last_ver
+    last_ver="$version"
+    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=microg-youtube-vanced" | get_largest_ver)}"
+
+    echo "Selected version: ${last_ver}"
+    local base_apk="com.mgoogle.android.gms.apk"
+    if [ ! -f "$base_apk" ]
+    then
+        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/team-vanced/microg-youtube-vanced/microg-youtube-vanced-${last_ver//./-}-release/" \
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
+        echo "Vanced microG v${last_ver}"
+        echo "Downloaded from: [Vanced microG - APKMirror]($dl_url)"
+    fi
 }
 
 dl_youtube()
