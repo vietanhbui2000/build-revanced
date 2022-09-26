@@ -4,6 +4,7 @@ echo "Declaring variables"
 declare -A artifacts
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
+artifacts["revanced-integrations.apk"]="revanced/revanced-integrations app-release-unsigned .apk"
 artifacts["revanced-patches.jar"]="revanced/revanced-patches revanced-patches .jar"
 
 get_artifact_download_url()
@@ -17,7 +18,7 @@ get_artifact_download_url()
 echo "Cleaning up"
 if [[ "$1" == "clean" ]]
     then
-    rm -f revanced-cli.jar revanced-patches.jar
+    rm -f revanced-cli.jar revanced-integrations.apk revanced-patches.jar
     exit
 fi
 
@@ -31,7 +32,7 @@ do
     fi
 done
 
-revanced-patches="-i tiktok-download -i tiktok-seekbar -i tiktok-ads"
+revanced-patches="-i tiktok-feed-filter -i tiktok-download -i tiktok-seekbar -i tiktok-force-login -i tiktok-settings -i tiktok-ads"
 
 echo "Preparing"
 mkdir -p output
@@ -40,7 +41,7 @@ echo "Compiling ReTikTok"
 if [ -f "com.zhiliaoapp.musically.apk" ]
 then
     echo "Compiling package"
-    java -jar revanced-cli.jar -b revanced-patches.jar -r \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar -r \
                                $revanced-patches \
                                -a com.zhiliaoapp.musically.apk -o output/retiktok.apk
 else

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-VMG_VERSION="0.2.24.220220"
-
 patches_file=./revanced-patches.md
 
 included_start="$(grep -n -m1 'INCLUDED PATCHES' "$patches_file" | cut -d':' -f1)"
@@ -11,13 +9,12 @@ included_patches="$(tail -n +$included_start $patches_file | head -n "$(( exclud
 excluded_patches="$(tail -n +$excluded_start $patches_file | grep '^[^#[:blank:]]')"
 
 echo "Declaring variables"
-declare -a patches
 declare -A artifacts
+declare -a patches
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
 artifacts["revanced-integrations.apk"]="revanced/revanced-integrations app-release-unsigned .apk"
 artifacts["revanced-patches.jar"]="revanced/revanced-patches revanced-patches .jar"
-artifacts["apkeep"]="EFForg/apkeep apkeep-x86_64-unknown-linux-gnu"
 
 get_artifact_download_url()
 {
@@ -52,20 +49,12 @@ do
     fi
 done
 
-echo "Fetching microG"
-chmod +x apkeep
-if [ ! -f "vanced-microg.apk" ]
-then
-    echo "Downloading Vanced microG"
-    ./apkeep -a com.mgoogle.android.gms@${VMG_VERSION} .
-    mv com.mgoogle.android.gms@${VMG_VERSION}.apk vanced-microg.apk
-fi
-
 [[ ! -z "$included_patches" ]] && populate_patches "-i" "$included_patches"
 [[ ! -z "$excluded_patches" ]] && populate_patches "-e" "$excluded_patches"
 
 echo "Preparing"
 mkdir -p output
+mv com.mgoogle.android.gms.apk vanced-microg.apk
 
 echo "Compiling ReVanced"
 if [ -f "com.google.android.youtube.apk" ]
