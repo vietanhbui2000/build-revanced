@@ -41,7 +41,7 @@ echo "Compiling ReTikTok"
 if [ -f "com.zhiliaoapp.musically.apk" ]
 then
     echo "Compiling package"
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar -r \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                $revanced-patches \
                                -a com.zhiliaoapp.musically.apk -o output/retiktok.apk
 else
