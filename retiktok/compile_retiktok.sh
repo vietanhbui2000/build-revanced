@@ -56,12 +56,12 @@ echo "Preparing"
 mkdir -p output
 
 echo "Compiling ReTikTok"
-if [ -f "com.zhiliaoapp.musically.apk" ]
+if [ -f "com.ss.android.ugc.trill.apk" ]
 then
     echo "Compiling package"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                ${patches[@]} \
-                               -a com.zhiliaoapp.musically.apk -o output/retiktok.apk
+                               -a com.ss.android.ugc.trill.apk -o output/retiktok.apk
 else
     echo "Cannot find TikTok base package, skip compiling"
 fi
