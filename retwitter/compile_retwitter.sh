@@ -31,7 +31,7 @@ do
     fi
 done
 
-revanced-patches="-i timeline-ads"
+revanced-patches="-i timeline-ads -e monochrome-icon"
 
 echo "Preparing"
 mkdir -p output
