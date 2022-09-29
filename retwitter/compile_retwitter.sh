@@ -1,7 +1,16 @@
 #!/bin/bash
 
+patches_file=./revanced-patches.md
+
+included_start="$(grep -n -m1 'INCLUDED PATCHES' "$patches_file" | cut -d':' -f1)"
+excluded_start="$(grep -n -m1 'EXCLUDED PATCHES' "$patches_file" | cut -d':' -f1)"
+
+included_patches="$(tail -n +$included_start $patches_file | head -n "$(( excluded_start - included_start ))" | grep '^[^#[:blank:]]')"
+excluded_patches="$(tail -n +$excluded_start $patches_file | grep '^[^#[:blank:]]')"
+
 echo "Declaring variables"
 declare -A artifacts
+declare -a patches
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
 artifacts["revanced-patches.jar"]="revanced/revanced-patches revanced-patches .jar"
@@ -12,6 +21,14 @@ get_artifact_download_url()
     api_url="https://api.github.com/repos/$1/releases/latest"
     result=$(curl -s $api_url | jq ".assets[] | select(.name | contains(\"$2\") and contains(\"$3\") and (contains(\".sig\") | not)) | .browser_download_url")
     echo "${result:1:-1}"
+}
+
+populate_patches()
+{
+    while read -r revanced_patches
+    do
+        patches+=("$1 $revanced_patches")
+    done <<< "$2"
 }
 
 echo "Cleaning up"
@@ -31,7 +48,8 @@ do
     fi
 done
 
-revanced-patches="-i timeline-ads -e monochrome-icon"
+[[ ! -z "$included_patches" ]] && populate_patches "-i" "$included_patches"
+[[ ! -z "$excluded_patches" ]] && populate_patches "-e" "$excluded_patches"
 
 echo "Preparing"
 mkdir -p output
@@ -41,7 +59,7 @@ if [ -f "com.twitter.android.apk" ]
 then
     echo "Compiling package"
     java -jar revanced-cli.jar -b revanced-patches.jar \
-                               $revanced-patches \
+                               ${patches[@]} \
                                -a com.twitter.android.apk -o output/retwitter.apk
 else
     echo "Cannot find Twitter base package, skip compiling"
