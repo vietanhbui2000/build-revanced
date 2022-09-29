@@ -40,7 +40,7 @@ echo "Compiling ReReddit"
 if [ -f "com.reddit.frontpage.apk" ]
 then
     echo "Compiling package"
-    java -jar revanced-cli.jar -b revanced-patches.jar -r \
+    java -jar revanced-cli.jar -b revanced-patches.jar \
                                $revanced-patches \
                                -a com.reddit.frontpage.apk -o output/rereddit.apk
 else
