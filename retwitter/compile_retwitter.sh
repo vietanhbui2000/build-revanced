@@ -40,7 +40,7 @@ echo "Compiling ReTwitter"
 if [ -f "com.twitter.android.apk" ]
 then
     echo "Compiling package"
-    java -jar revanced-cli.jar -b revanced-patches.jar -r \
+    java -jar revanced-cli.jar -b revanced-patches.jar \
                                $revanced-patches \
                                -a com.twitter.android.apk -o output/retwitter.apk
 else
