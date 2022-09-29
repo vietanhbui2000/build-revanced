@@ -53,6 +53,6 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         draft: true
-        title: "r${{ env.date_now }}"
+        title: "ReTwitter r${{ env.date_now }}"
         files: |
           retwitter/output/retwitter-signed.apk
