@@ -32,7 +32,7 @@ do
     fi
 done
 
-revanced-patches="-i tiktok-feed-filter -i tiktok-download -i tiktok-seekbar -i tiktok-force-login -i tiktok-settings -i tiktok-ads"
+revanced-patches="-i tiktok-ads -i tiktok-download -i tiktok-feed-filter -i tiktok-force-login -i tiktok-seekbar -i tiktok-settings"
 
 echo "Preparing"
 mkdir -p output
