@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Declaring variables"
+echo "Declaring variable(s)"
 declare -A apks
 
 apks["com.mgoogle.android.gms.apk"]=dl_vanced-microg
@@ -56,8 +56,7 @@ dl_vanced-microg()
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/team-vanced/microg-youtube-vanced/microg-youtube-vanced-${last_ver//./-}-release/" \
                 "APK</span>[^@]*@\([^#]*\)" \
                 "$base_apk")
-        echo "Vanced microG v${last_ver}"
-        echo "Downloaded from: [Vanced microG - APKMirror]($dl_url)"
+        echo "Downloaded Vanced microG v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
@@ -75,8 +74,7 @@ dl_youtube()
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/google-inc/youtube/youtube-${last_ver//./-}-release/" \
                 "APK</span>[^@]*@\([^#]*\)" \
                 "$base_apk")
-        echo "YouTube v${last_ver}"
-        echo "Downloaded from: [YouTube - APKMirror]($dl_url)"
+        echo "Downloaded YouTube v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
@@ -102,8 +100,7 @@ dl_youtube-music()
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/google-inc/youtube-music/youtube-music-${last_ver//./-}-release/" \
                 "$regexp_arch" \
                 "$base_apk")
-        echo "YouTube Music (${arch}) v${last_ver}"
-        echo "Downloaded from: [YouTube Music (${arch}) - APKMirror]($dl_url)"
+        echo "Downloaded YouTube Music (${arch}) v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
