@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Declaring variables"
+echo "Declaring variable(s)"
 declare -A apks
 
 apks["com.twitter.android.apk"]=dl_twitter
@@ -52,8 +52,7 @@ dl_twitter()
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/twitter-inc/twitter/twitter-${last_ver//./-}-release/" \
                 "APK</span>[^@]*@\([^#]*\)" \
                 "$base_apk")
-        echo "Twitter v${last_ver}"
-        echo "Downloaded from: [Twitter - APKMirror]($dl_url)"
+        echo "Downloaded Twitter v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
