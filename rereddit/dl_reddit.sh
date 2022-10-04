@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Declaring variables"
+echo "Declaring variable(s)"
 declare -A apks
 
 apks["com.reddit.frontpage.apk"]=dl_reddit
@@ -52,8 +52,7 @@ dl_reddit()
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/redditinc/reddit/reddit-${last_ver//./-}-release/" \
                 "APK</span>[^@]*@\([^#]*\)" \
                 "$base_apk")
-        echo "Reddit v${last_ver}"
-        echo "Downloaded from: [Reddit - APKMirror]($dl_url)"
+        echo "Downloaded Reddit v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
