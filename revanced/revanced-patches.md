@@ -5,6 +5,7 @@ codecs-unlock
 custom-branding
 exclusive-audio-playback
 general-ads
+hdr-auto-brightness
 hide-get-premium
 microg-support
 minimized-playback
@@ -28,10 +29,10 @@ custom-video-buffer
 disable-auto-captions
 disable-auto-player-popup-panels
 disable-fullscreen-panels
+disable-startup-shorts-player
 downloads
 enable-debugging
 enable-wide-searchbar
-hdr-auto-brightness
 hide-autoplay-button
 hide-cast-button
 hide-create-button
@@ -39,6 +40,7 @@ hide-email-address
 hide-infocard-suggestions
 hide-shorts-button
 hide-time-and-seekbar
+hide-video-buttons
 hide-watermark
 swipe-controls
 tablet-mini-player
