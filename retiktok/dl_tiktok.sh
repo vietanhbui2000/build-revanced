@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Declaring variables"
+echo "Declaring variable(s)"
 declare -A apks
 
 apks["com.ss.android.ugc.trill.apk"]=dl_tiktok
@@ -52,8 +52,7 @@ dl_tiktok()
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok/tik-tok-${last_ver//./-}-release/" \
                 "APK</span>[^@]*@\([^#]*\)" \
                 "$base_apk")
-        echo "TikTok v${last_ver}"
-        echo "Downloaded from: [TikTok - APKMirror]($dl_url)"
+        echo "Downloaded TikTok v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
