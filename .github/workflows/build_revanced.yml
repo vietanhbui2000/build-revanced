@@ -7,6 +7,9 @@ name: Build ReVanced
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'revanced/dl_youtube-versions.json'
 
 jobs:
   build:
