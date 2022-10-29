@@ -7,6 +7,9 @@ name: Build ReTikTok
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'retiktok/dl_tiktok-version.json'
 
 jobs:
   build:
