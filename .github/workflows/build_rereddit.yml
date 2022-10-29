@@ -7,6 +7,9 @@ name: Build ReReddit
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'rereddit/dl_reddit-version.json'
 
 jobs:
   build:
