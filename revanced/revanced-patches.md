@@ -23,6 +23,7 @@ upgrade-button-remover
 video-ads
 # EXCLUDED PATCHES
 always-autorepeat
+comments
 compact-header
 custom-playback-speed
 custom-video-buffer
@@ -33,11 +34,16 @@ disable-startup-shorts-player
 downloads
 enable-debugging
 enable-wide-searchbar
+hide-album-cards
+hide-artist-card
 hide-autoplay-button
+hide-captions-button
 hide-cast-button
 hide-create-button
+hide-crowdfunding-box
 hide-email-address
 hide-infocard-suggestions
+hide-my-mix
 hide-shorts-button
 hide-time-and-seekbar
 hide-video-buttons
