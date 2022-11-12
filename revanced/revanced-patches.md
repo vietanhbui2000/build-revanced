@@ -13,6 +13,7 @@ minimized-playback-music
 music-microg-support
 music-video-ads
 old-quality-layout
+open-links-directly
 premium-heading
 remember-video-quality
 return-youtube-dislike
@@ -27,12 +28,12 @@ comments
 compact-header
 custom-playback-speed
 custom-video-buffer
+debugging
 disable-auto-captions
 disable-auto-player-popup-panels
 disable-fullscreen-panels
 disable-startup-shorts-player
 downloads
-enable-debugging
 enable-wide-searchbar
 hide-album-cards
 hide-artist-card
@@ -42,11 +43,13 @@ hide-cast-button
 hide-create-button
 hide-crowdfunding-box
 hide-email-address
+hide-endscreen-cards
 hide-infocard-suggestions
 hide-my-mix
 hide-shorts-button
 hide-time-and-seekbar
 hide-video-buttons
+hide-watch-in-vr
 hide-watermark
 swipe-controls
 tablet-mini-player
