@@ -26,8 +26,8 @@ video-ads
 always-autorepeat
 comments
 compact-header
-custom-playback-speed
 custom-video-buffer
+custom-video-speed
 debugging
 disable-auto-captions
 disable-auto-player-popup-panels
@@ -44,7 +44,7 @@ hide-create-button
 hide-crowdfunding-box
 hide-email-address
 hide-endscreen-cards
-hide-infocard-suggestions
+hide-info-cards
 hide-my-mix
 hide-shorts-button
 hide-time-and-seekbar
