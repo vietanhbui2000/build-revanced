@@ -33,6 +33,7 @@ disable-auto-captions
 disable-auto-player-popup-panels
 disable-fullscreen-panels
 disable-startup-shorts-player
+disable-zoom-haptics
 downloads
 enable-wide-searchbar
 hide-album-cards
@@ -51,6 +52,7 @@ hide-time-and-seekbar
 hide-video-buttons
 hide-watch-in-vr
 hide-watermark
+remove-player-button-background
 swipe-controls
 tablet-mini-player
 tasteBuilder-remover
