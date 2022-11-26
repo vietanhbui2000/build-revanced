@@ -46,7 +46,7 @@ dl_twitch()
     last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=twitch" | get_largest_ver)}"
 
     echo "Selected version: ${last_ver}"
-    local base_apk="com.ss.android.ugc.trill.apk"
+    local base_apk="tv.twitch.android.app.apk"
     if [ ! -f "$base_apk" ]
     then
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/twitch-${last_ver//./-}-release/" \
