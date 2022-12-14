@@ -1,11 +1,11 @@
 # INCLUDED PATCHES
+disable-login-requirement
+downloads
+feed-filter
+fix-google-login
+hide-ads
+playback-speed
+settings
+show-seekbar
 sim-spoof
-tiktok-ads
-tiktok-download
-tiktok-feed-filter
-tiktok-force-login
-tiktok-seekbar
-tiktok-settings
-tiktok-speed
-tiktok-web-login
 # EXCLUDED PATCHES
