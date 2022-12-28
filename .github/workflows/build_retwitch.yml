@@ -22,7 +22,7 @@ jobs:
     - name: Setup Java
       uses: actions/setup-java@v3.9.0
       with:
-        distribution: "zulu"
+        distribution: "temurin"
         java-version: "17"
         java-package: jdk
 
