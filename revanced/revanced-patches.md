@@ -2,7 +2,6 @@
 background-play
 client-spoof
 codecs-unlock
-custom-branding
 exclusive-audio-playback
 general-ads
 hdr-auto-brightness
@@ -26,6 +25,7 @@ video-ads
 always-autorepeat
 comments
 compact-header
+custom-branding
 custom-video-buffer
 custom-video-speed
 debugging
