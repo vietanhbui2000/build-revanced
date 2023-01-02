@@ -25,6 +25,7 @@ video-ads
 always-autorepeat
 comments
 compact-header
+copy-video-url
 custom-branding
 custom-video-buffer
 custom-video-speed
@@ -39,6 +40,7 @@ enable-wide-searchbar
 hide-album-cards
 hide-artist-card
 hide-autoplay-button
+hide-breaking-news-shelf
 hide-captions-button
 hide-cast-button
 hide-create-button
