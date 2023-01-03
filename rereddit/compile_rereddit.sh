@@ -1,6 +1,6 @@
 #!/bin/bash
 
-patches_file=./revanced-patches.md
+patches_file=./rereddit-patches.md
 
 included_start="$(grep -n -m1 'INCLUDED PATCHES' "$patches_file" | cut -d':' -f1)"
 excluded_start="$(grep -n -m1 'EXCLUDED PATCHES' "$patches_file" | cut -d':' -f1)"
