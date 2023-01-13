@@ -14,6 +14,7 @@ music-video-ads
 old-quality-layout
 open-links-directly
 premium-heading
+remember-playback-rate
 remember-video-quality
 return-youtube-dislike
 seekbar-tapping
