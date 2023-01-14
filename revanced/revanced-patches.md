@@ -56,6 +56,7 @@ hide-video-buttons
 hide-watch-in-vr
 hide-watermark
 remove-player-button-background
+spoof-app-version
 swipe-controls
 tablet-mini-player
 tasteBuilder-remover
