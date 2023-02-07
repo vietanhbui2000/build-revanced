@@ -13,6 +13,7 @@ music-microg-support
 music-video-ads
 old-quality-layout
 open-links-directly
+open-links-externally
 premium-heading
 remember-playback-rate
 remember-video-quality
@@ -50,6 +51,7 @@ hide-email-address
 hide-endscreen-cards
 hide-info-cards
 hide-my-mix
+hide-player-button
 hide-shorts-button
 hide-time-and-seekbar
 hide-video-buttons
