@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'revanced/dl_youtube-versions.json'
+      - 'versions.json'
 
 jobs:
   build:
@@ -26,23 +26,21 @@ jobs:
         java-version: "17"
         java-package: jdk
 
-    - name: Download YouTube
+    - name: Download base packages
       run: |
-        cd revanced
-        chmod +x dl_youtube.sh
-        ./dl_youtube.sh
+        chmod +x download.sh
+        ./download.sh
 
-    - name: Compile ReVanced
+    - name: Compile packages
       run: |
-        cd revanced
-        chmod +x compile_revanced.sh
-        ./compile_revanced.sh
+        chmod +x compile.sh
+        ./compile.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-    - name: Sign package(s)
+    - name: Sign packages
       uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: revanced/output
+        releaseDirectory: output
         alias: ${{ secrets.ALIAS }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -50,7 +48,7 @@ jobs:
       env:
         BUILD_TOOLS_VERSION: "30.0.2"
 
-    - name: Upload package(s)
+    - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -58,6 +56,11 @@ jobs:
         draft: true
         title: "ReVanced r${{ env.date_now }}"
         files: |
-          revanced/vanced-microg.apk
-          revanced/output/revanced-signed.apk
-          revanced/output/revanced-music-signed.apk
+          vanced-microg.apk
+          output/revanced-signed.apk
+          output/revanced-music-signed.apk
+          output/retwitch-signed.apk
+          output/retiktok-signed.apk
+          output/retwitter-signed.apk
+          output/rereddit-signed.apk
+          output/reinstagram-signed.apk
