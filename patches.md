@@ -12,7 +12,6 @@ minimized-playback-music
 music-microg-support
 music-video-ads
 old-quality-layout
-open-links-directly
 open-links-externally
 premium-heading
 remember-playback-rate
@@ -88,13 +87,14 @@ dynamic-color
 monochrome-icon
 timeline-ads
 # ReTwitter Excluded Patches
+hide-recommended-users
 hide-views-stats
 predictive-back-gesture
 # ReReddit Included Patches
 general-reddit-ads
-hide-subreddit-banner
 premium-icon-reddit
 # ReReddit Excluded Patches
+hide-subreddit-banner
 predictive-back-gesture
 # ReInstagram Included Patches
 hide-timeline-ads
