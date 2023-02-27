@@ -84,8 +84,8 @@ sim-spoof
 
 # ReTwitter included patches
 dynamic-color
+hide-ads
 monochrome-icon
-timeline-ads
 # ReTwitter excluded patches
 hide-recommended-users
 hide-views-stats
