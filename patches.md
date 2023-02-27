@@ -1,4 +1,4 @@
-# ReVanced Included Patches
+# ReVanced included patches
 background-play
 client-spoof
 codecs-unlock
@@ -22,7 +22,7 @@ settings
 sponsorblock
 upgrade-button-remover
 video-ads
-# ReVanced Excluded Patches
+# ReVanced excluded patches
 always-autorepeat
 comments
 compact-header
@@ -62,15 +62,15 @@ swipe-controls
 tablet-mini-player
 tasteBuilder-remover
 theme
-# ReTwitch Included Patches
+# ReTwitch included patches
 block-audio-ads
 block-embedded-ads
 block-video-ads
 settings
 show-deleted-messages
-# ReTwitch Excluded Patches
+# ReTwitch excluded patches
 debug-mode
-# ReTikTok Included Patches
+# ReTikTok included patches
 disable-login-requirement
 downloads
 feed-filter
@@ -80,23 +80,23 @@ playback-speed
 settings
 show-seekbar
 sim-spoof
-# ReTikTok Excluded Patches
+# ReTikTok excluded patches
 
-# ReTwitter Included Patches
+# ReTwitter included patches
 dynamic-color
 monochrome-icon
 timeline-ads
-# ReTwitter Excluded Patches
+# ReTwitter excluded patches
 hide-recommended-users
 hide-views-stats
 predictive-back-gesture
-# ReReddit Included Patches
+# ReReddit included patches
 general-reddit-ads
 premium-icon-reddit
-# ReReddit Excluded Patches
+# ReReddit excluded patches
 hide-subreddit-banner
 predictive-back-gesture
-# ReInstagram Included Patches
+# ReInstagram included patches
 hide-timeline-ads
-# ReInstagram Excluded Patches
+# ReInstagram excluded patches
 predictive-back-gesture
