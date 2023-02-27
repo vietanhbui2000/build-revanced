@@ -188,7 +188,7 @@ function build_retwitter()
 echo "Compiling ReTwitter"
 if [ -f "com.twitter.android.apk" ]
 then
-    java -jar revanced-cli.jar -b revanced-patches.jar \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
                                ${retwitter_patches[@]} \
                                -a com.twitter.android.apk -o output/retwitter.apk
 else
