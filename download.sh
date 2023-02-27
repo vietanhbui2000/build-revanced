@@ -6,6 +6,11 @@ declare -A apks
 apks["com.mgoogle.android.gms.apk"]=dl_vanced-microg
 apks["com.google.android.youtube.apk"]=dl_youtube
 apks["com.google.android.apps.youtube.music.apk"]=dl_youtube-music
+apks["tv.twitch.android.app.apk"]=dl_twitch
+apks["com.ss.android.ugc.trill.apk"]=dl_tiktok
+apks["com.twitter.android.apk"]=dl_twitter
+apks["com.reddit.frontpage.apk"]=dl_reddit
+apks["com.instagram.android.apk"]=dl_instagram
 
 WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
 ARM_V7A="arm-v7a"
@@ -104,12 +109,102 @@ dl_youtube-music()
     fi
 }
 
+dl_twitch()
+{
+    echo "Downloading Twitch"
+    local last_ver
+    last_ver="$version"
+    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=twitch" | get_largest_ver)}"
+
+    echo "Selected version: ${last_ver}"
+    local base_apk="tv.twitch.android.app.apk"
+    if [ ! -f "$base_apk" ]
+    then
+        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/twitch-${last_ver//./-}-release/" \
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
+        echo "Downloaded Twitch v${last_ver} from [APKMirror]($dl_url)"
+    fi
+}
+
+dl_tiktok()
+{
+    echo "Downloading TikTok"
+    local last_ver
+    last_ver="$version"
+    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=tik-tok" | get_largest_ver)}"
+
+    echo "Selected version: ${last_ver}"
+    local base_apk="com.ss.android.ugc.trill.apk"
+    if [ ! -f "$base_apk" ]
+    then
+        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok/tik-tok-${last_ver//./-}-release/" \
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
+        echo "Downloaded TikTok v${last_ver} from [APKMirror]($dl_url)"
+    fi
+}
+
+dl_twitter()
+{
+    echo "Downloading Twitter"
+    local last_ver
+    last_ver="$version"
+    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=twitter" | get_largest_ver)}"
+
+    echo "Selected version: ${last_ver}"
+    local base_apk="com.twitter.android.apk"
+    if [ ! -f "$base_apk" ]
+    then
+        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/twitter-inc/twitter/twitter-${last_ver//./-}-release/" \
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
+        echo "Downloaded Twitter v${last_ver} from [APKMirror]($dl_url)"
+    fi
+}
+
+dl_reddit()
+{
+    echo "Downloading Reddit"
+    local last_ver
+    last_ver="$version"
+    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=reddit" | get_largest_ver)}"
+
+    echo "Selected version: ${last_ver}"
+    local base_apk="com.reddit.frontpage.apk"
+    if [ ! -f "$base_apk" ]
+    then
+        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/redditinc/reddit/reddit-${last_ver//./-}-release/" \
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
+        echo "Downloaded Reddit v${last_ver} from [APKMirror]($dl_url)"
+    fi
+}
+
+dl_instagram()
+{
+    echo "Downloading Instagram"
+    local last_ver
+    last_ver="$version"
+    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=instagram-instagram" | get_largest_ver)}"
+
+    echo "Selected version: ${last_ver}"
+    local base_apk="com.instagram.android.apk"
+    if [ ! -f "$base_apk" ]
+    then
+        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/instagram/instagram-instagram/instagram-instagram-${last_ver//./-}-release/" \
+                "APK</span>[^@]*@\([^#]*\)" \
+                "$base_apk")
+        echo "Downloaded Instagram v${last_ver} from [APKMirror]($dl_url)"
+    fi
+}
+
 for apk in "${!apks[@]}"
 do
     if [ ! -f $apk ]
     then
         echo "Downloading $apk"
-        version=$(jq -r ".\"$apk\"" <dl_youtube-versions.json)
+        version=$(jq -r ".\"$apk\"" <versions.json)
         ${apks[$apk]}
     fi
 done
