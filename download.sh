@@ -183,7 +183,8 @@ dl_reddit()
 
 dl_instagram()
 {
-    echo "Downloading Instagram"
+    local arch=$ARM64_V8A
+    echo "Downloading Instagram (${arch})"
     local last_ver
     last_ver="$version"
     last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=instagram-instagram" | get_largest_ver)}"
@@ -192,10 +193,17 @@ dl_instagram()
     local base_apk="com.instagram.android.apk"
     if [ ! -f "$base_apk" ]
     then
+        if [ "$arch" = "$ARM_V7A" ]
+	then
+            local regexp_arch='armeabi-v7a</div>[^@]*@\([^"]*\)'
+	elif [ "$arch" = "$ARM64_V8A" ]
+	then
+            local regexp_arch='arm64-v8a</div>[^@]*@\([^"]*\)'
+        fi
         declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/instagram/instagram-instagram/instagram-instagram-${last_ver//./-}-release/" \
-                "APK</span>[^@]*@\([^#]*\)" \
+                "$regexp_arch" \
                 "$base_apk")
-        echo "Downloaded Instagram v${last_ver} from [APKMirror]($dl_url)"
+        echo "Downloaded Instagram (${arch}) v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
