@@ -49,12 +49,12 @@ jobs:
         BUILD_TOOLS_VERSION: "30.0.2"
 
     - name: Upload packages
-      uses: marvinpinto/action-automatic-releases@v1.2.1
+      uses: softprops/action-gh-release@v0.1.15
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        tag_name: "latest"
         draft: true
-        title: "ReVanced r${{ env.date_now }}"
+        name: "ReVanced r${{ env.date_now }}"
         files: |
           vanced-microg.apk
           output/revanced-signed.apk
