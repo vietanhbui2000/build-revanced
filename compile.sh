@@ -136,7 +136,7 @@ function build_revanced()
 echo "Compiling ReVanced"
 if [ -f "com.google.android.youtube.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=ks.keystore \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore \
                                ${revanced_patches[@]} \
                                -a com.google.android.youtube.apk -o output/revanced.apk
 else
@@ -149,7 +149,7 @@ function build_revanced-music()
 echo "Compiling ReVanced Music"
 if [ -f "com.google.android.apps.youtube.music.apk" ]
 then
-    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=ks.keystore \
+    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore \
                                ${revanced_patches[@]} \
                                -a com.google.android.apps.youtube.music.apk -o output/revanced-music.apk
 else
@@ -162,7 +162,7 @@ function build_retwitch()
 echo "Compiling ReTwitch"
 if [ -f "tv.twitch.android.app.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=ks.keystore \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore \
                                ${retwitch_patches[@]} \
                                -a tv.twitch.android.app.apk -o output/retwitch.apk
 else
@@ -175,7 +175,7 @@ function build_retiktok()
 echo "Compiling ReTikTok"
 if [ -f "com.ss.android.ugc.trill.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=ks.keystore \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore \
                                ${retiktok_patches[@]} \
                                -a com.ss.android.ugc.trill.apk -o output/retiktok.apk
 else
@@ -188,7 +188,7 @@ function build_retwitter()
 echo "Compiling ReTwitter"
 if [ -f "com.twitter.android.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=ks.keystore \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore \
                                ${retwitter_patches[@]} \
                                -a com.twitter.android.apk -o output/retwitter.apk
 else
@@ -201,7 +201,7 @@ function build_rereddit()
 echo "Compiling ReReddit"
 if [ -f "com.reddit.frontpage.apk" ]
 then
-    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=ks.keystore \
+    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore \
                                ${rereddit_patches[@]} \
                                -a com.reddit.frontpage.apk -o output/rereddit.apk
 else
@@ -214,7 +214,7 @@ function build_reinstagram()
 echo "Compiling ReInstagram"
 if [ -f "com.instagram.android.apk" ]
 then
-    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=ks.keystore \
+    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore \
                                ${reinstagram_patches[@]} \
                                -a com.instagram.android.apk -o output/reinstagram.apk
 else
