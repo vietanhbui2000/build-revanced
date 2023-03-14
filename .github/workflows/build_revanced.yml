@@ -57,10 +57,4 @@ jobs:
         name: "ReVanced r${{ env.date_now }}"
         files: |
           vanced-microg.apk
-          output/revanced-signed.apk
-          output/revanced-music-signed.apk
-          output/retwitch-signed.apk
-          output/retiktok-signed.apk
-          output/retwitter-signed.apk
-          output/rereddit-signed.apk
-          output/reinstagram-signed.apk
+          output/*.apk
