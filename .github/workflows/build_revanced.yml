@@ -37,17 +37,6 @@ jobs:
         ./compile.sh
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-    - name: Sign packages
-      uses: r0adkll/sign-android-release@v1
-      with:
-        releaseDirectory: output
-        alias: ${{ secrets.ALIAS }}
-        keyPassword: ${{ secrets.KEY_PASSWORD }}
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-      env:
-        BUILD_TOOLS_VERSION: "30.0.2"
-
     - name: Upload packages
       uses: softprops/action-gh-release@v0.1.15
       with:
