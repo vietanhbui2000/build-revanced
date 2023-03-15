@@ -65,7 +65,7 @@ dl_vanced-microg()
     fi
 }
 
-dl_youtube()
+function dl_youtube()
 {
     echo "Downloading YouTube"
     local last_ver
@@ -83,7 +83,7 @@ dl_youtube()
     fi
 }
 
-dl_youtube-music()
+function dl_youtube-music()
 {
     local arch=$ARM64_V8A
     echo "Downloading YouTube Music (${arch})"
@@ -109,7 +109,7 @@ dl_youtube-music()
     fi
 }
 
-dl_twitch()
+function dl_twitch()
 {
     echo "Downloading Twitch"
     local last_ver
@@ -127,7 +127,7 @@ dl_twitch()
     fi
 }
 
-dl_tiktok()
+function dl_tiktok()
 {
     echo "Downloading TikTok"
     local last_ver
@@ -145,7 +145,7 @@ dl_tiktok()
     fi
 }
 
-dl_twitter()
+function dl_twitter()
 {
     echo "Downloading Twitter"
     local last_ver
@@ -163,7 +163,7 @@ dl_twitter()
     fi
 }
 
-dl_reddit()
+function dl_reddit()
 {
     echo "Downloading Reddit"
     local last_ver
@@ -181,7 +181,7 @@ dl_reddit()
     fi
 }
 
-dl_instagram()
+function dl_instagram()
 {
     local arch=$ARM64_V8A
     echo "Downloading Instagram (${arch})"
@@ -216,3 +216,56 @@ do
         ${apks[$apk]}
     fi
 done
+
+source configs.md
+
+if [ "$BUILD_REVANCED" = "true" ];
+then
+	dl_youtube
+else
+	printf "\nSkipping YouTube"
+fi
+
+if [ "$BUILD_REVANCED_MUSIC" = "true" ];
+then
+	dl_youtube-music
+else
+	printf "\nSkipping YouTube Music"
+fi
+
+if [ "$BUILD_RETWITCH" = "true" ];
+then
+	dl_twitch
+else
+	printf "\nSkipping Twitch"
+fi
+
+if [ "$BUILD_RETIKTOK" = "true" ];
+then
+	dl_tiktok
+else
+	printf "\nSkipping TikTok"
+fi
+
+if [ "$BUILD_RETWITTER" = "true" ];
+then
+	dl_twitter
+else
+	printf "\nSkipping Twitter"
+fi
+
+if [ "$BUILD_REREDDIT" = "true" ];
+then
+	dl_reddit
+else
+	printf "\nSkipping Reddit"
+fi
+
+if [ "$BUILD_REINSTAGRAM" = "true" ];
+then
+	dl_instagram
+else
+	printf "\nSkipping Instagram"
+fi
+
+echo "Done downloading"
