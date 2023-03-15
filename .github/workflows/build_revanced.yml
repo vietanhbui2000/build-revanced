@@ -49,4 +49,5 @@ jobs:
         title: "ReVanced r${{ env.date_now }}"
         files: |
           vanced-microg.apk
-          output/*-signed.apk
+          output/*.keystore
+          output/*.apk
