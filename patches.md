@@ -20,6 +20,7 @@ return-youtube-dislike
 seekbar-tapping
 settings
 sponsorblock
+spoof-signature-verification
 upgrade-button-remover
 video-ads
 # ReVanced excluded patches
