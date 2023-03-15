@@ -45,7 +45,7 @@ jobs:
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
         tag_name: "latest"
-        draft: true
+        prerelease: true
         name: "ReVanced r${{ env.date_now }}"
         files: |
           vanced-microg.apk
