@@ -32,21 +32,13 @@ jobs:
         ./download.sh
 
     - name: Compile packages
+      env:
+        CN: ${{ secrets.KEYSTORE_CN }}
+        PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       run: |
         chmod +x compile.sh
-        ./compile.sh
+        ./compile.sh "$CN" "$PASSWORD"
         echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-
-    - name: Sign packages
-      uses: r0adkll/sign-android-release@v1
-      with:
-        releaseDirectory: output
-        alias: ${{ secrets.ALIAS }}
-        keyPassword: ${{ secrets.KEY_PASSWORD }}
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-      env:
-        BUILD_TOOLS_VERSION: "30.0.2"
 
     - name: Upload packages
       uses: marvinpinto/action-automatic-releases@v1.2.1
