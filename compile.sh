@@ -136,7 +136,7 @@ function build_revanced()
 echo "Compiling ReVanced"
 if [ -f "com.google.android.youtube.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --cn=$CN --password=$PASSWORD \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${revanced_patches[@]} \
                                -a com.google.android.youtube.apk -o output/revanced.apk
 else
@@ -149,7 +149,7 @@ function build_revanced-music()
 echo "Compiling ReVanced Music"
 if [ -f "com.google.android.apps.youtube.music.apk" ]
 then
-    java -jar revanced-cli.jar -b revanced-patches.jar --cn=$CN --password=$PASSWORD \
+    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${revanced_patches[@]} \
                                -a com.google.android.apps.youtube.music.apk -o output/revanced-music.apk
 else
@@ -162,7 +162,7 @@ function build_retwitch()
 echo "Compiling ReTwitch"
 if [ -f "tv.twitch.android.app.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --cn=$CN --password=$PASSWORD \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${retwitch_patches[@]} \
                                -a tv.twitch.android.app.apk -o output/retwitch.apk
 else
@@ -175,7 +175,7 @@ function build_retiktok()
 echo "Compiling ReTikTok"
 if [ -f "com.ss.android.ugc.trill.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --cn=$CN --password=$PASSWORD \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${retiktok_patches[@]} \
                                -a com.ss.android.ugc.trill.apk -o output/retiktok.apk
 else
@@ -188,7 +188,7 @@ function build_retwitter()
 echo "Compiling ReTwitter"
 if [ -f "com.twitter.android.apk" ]
 then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --cn=$CN --password=$PASSWORD \
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${retwitter_patches[@]} \
                                -a com.twitter.android.apk -o output/retwitter.apk
 else
@@ -201,7 +201,7 @@ function build_rereddit()
 echo "Compiling ReReddit"
 if [ -f "com.reddit.frontpage.apk" ]
 then
-    java -jar revanced-cli.jar -b revanced-patches.jar --cn=$CN --password=$PASSWORD \
+    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${rereddit_patches[@]} \
                                -a com.reddit.frontpage.apk -o output/rereddit.apk
 else
@@ -214,7 +214,7 @@ function build_reinstagram()
 echo "Compiling ReInstagram"
 if [ -f "com.instagram.android.apk" ]
 then
-    java -jar revanced-cli.jar -b revanced-patches.jar --cn=$CN --password=$PASSWORD \
+    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${reinstagram_patches[@]} \
                                -a com.instagram.android.apk -o output/reinstagram.apk
 else
@@ -228,49 +228,49 @@ if [ "$BUILD_REVANCED" = "true" ];
 then
 	build_revanced
 else
-	printf "\nSkipping ReVanced"
+	echo "Skipping ReVanced"
 fi
 
 if [ "$BUILD_REVANCED_MUSIC" = "true" ];
 then
 	build_revanced-music
 else
-	printf "\nSkipping ReVanced Music"
+	echo "Skipping ReVanced Music"
 fi
 
 if [ "$BUILD_RETWITCH" = "true" ];
 then
 	build_retwitch
 else
-	printf "\nSkipping ReTwitch"
+	echo "Skipping ReTwitch"
 fi
 
 if [ "$BUILD_RETIKTOK" = "true" ];
 then
 	build_retiktok
 else
-	printf "\nSkipping ReTikTok"
+	echo "Skipping ReTikTok"
 fi
 
 if [ "$BUILD_RETWITTER" = "true" ];
 then
 	build_retwitter
 else
-	printf "\nSkipping ReTwitter"
+	echo "Skipping ReTwitter"
 fi
 
 if [ "$BUILD_REREDDIT" = "true" ];
 then
 	build_rereddit
 else
-	printf "\nSkipping ReReddit"
+	echo "Skipping ReReddit"
 fi
 
 if [ "$BUILD_REINSTAGRAM" = "true" ];
 then
 	build_reinstagram
 else
-	printf "\nSkipping ReInstagram"
+	echo "Skipping ReInstagram"
 fi
 
 echo "Done compiling"
