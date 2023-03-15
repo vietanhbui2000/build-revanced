@@ -207,16 +207,6 @@ function dl_instagram()
     fi
 }
 
-for apk in "${!apks[@]}"
-do
-    if [ ! -f $apk ]
-    then
-        echo "Downloading $apk"
-        version=$(jq -r ".\"$apk\"" <versions.json)
-        ${apks[$apk]}
-    fi
-done
-
 source configs.md
 
 if [ "$BUILD_REVANCED" = "true" ];
@@ -267,5 +257,15 @@ then
 else
 	printf "\nSkipping Instagram"
 fi
+
+for apk in "${!apks[@]}"
+do
+    if [ ! -f $apk ]
+    then
+        echo "Downloading $apk"
+        version=$(jq -r ".\"$apk\"" <versions.json)
+        ${apks[$apk]}
+    fi
+done
 
 echo "Done downloading"
