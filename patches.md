@@ -48,6 +48,7 @@ hide-create-button
 hide-crowdfunding-box
 hide-email-address
 hide-endscreen-cards
+hide-floating-microphone-button
 hide-info-cards
 hide-my-mix
 hide-player-button
@@ -85,16 +86,16 @@ sim-spoof
 # ReTwitter included patches
 dynamic-color
 hide-ads
+hide-recommended-users
 monochrome-icon
 # ReTwitter excluded patches
-hide-recommended-users
 hide-views-stats
 predictive-back-gesture
 # ReReddit included patches
 general-reddit-ads
+hide-subreddit-banner
 premium-icon-reddit
 # ReReddit excluded patches
-hide-subreddit-banner
 predictive-back-gesture
 # ReInstagram included patches
 hide-timeline-ads
