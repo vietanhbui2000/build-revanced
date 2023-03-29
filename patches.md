@@ -88,7 +88,6 @@ sim-spoof
 dynamic-color
 hide-ads
 hide-recommended-users
-monochrome-icon
 # ReTwitter excluded patches
 hide-views-stats
 predictive-back-gesture
