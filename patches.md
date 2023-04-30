@@ -1,5 +1,6 @@
 # ReVanced included patches
 background-play
+bypass-certificate-checks
 client-spoof
 codecs-unlock
 exclusive-audio-playback
@@ -38,7 +39,6 @@ disable-fullscreen-panels
 disable-startup-shorts-player
 disable-zoom-haptics
 downloads
-enable-wide-searchbar
 hide-album-cards
 hide-artist-card
 hide-autoplay-button
@@ -51,8 +51,8 @@ hide-email-address
 hide-endscreen-cards
 hide-floating-microphone-button
 hide-info-cards
-hide-my-mix
 hide-player-button
+hide-player-overlay
 hide-shorts-button
 hide-time-and-seekbar
 hide-video-buttons
@@ -64,6 +64,7 @@ swipe-controls
 tablet-mini-player
 tasteBuilder-remover
 theme
+wide-searchbar
 # ReTwitch included patches
 block-audio-ads
 block-embedded-ads
@@ -96,8 +97,4 @@ general-reddit-ads
 hide-subreddit-banner
 premium-icon-reddit
 # ReReddit excluded patches
-predictive-back-gesture
-# ReInstagram included patches
-hide-timeline-ads
-# ReInstagram excluded patches
 predictive-back-gesture
