@@ -48,6 +48,5 @@ jobs:
         prerelease: true
         name: "ReVanced r${{ env.date_now }}"
         files: |
-          vanced-microg.apk
           output/*.keystore
           output/*.apk
