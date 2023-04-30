@@ -114,7 +114,7 @@ done
 
 echo "Preparing"
 mkdir -p output
-mv com.mgoogle.android.gms.apk vanced-microg.apk
+mv com.mgoogle.android.gms.apk "vanced-microg_v$(cat versions.json | grep -oP '(?<="com.mgoogle.android.gms.apk": ")[^"]*').apk"
 
 function build_revanced()
 {
