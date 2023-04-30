@@ -12,8 +12,6 @@ retwitter_included_start="$(grep -n -m1 'ReTwitter included patches' "$patches_f
 retwitter_excluded_start="$(grep -n -m1 'ReTwitter excluded patches' "$patches_file" | cut -d':' -f1)"
 rereddit_included_start="$(grep -n -m1 'ReReddit included patches' "$patches_file" | cut -d':' -f1)"
 rereddit_excluded_start="$(grep -n -m1 'ReReddit excluded patches' "$patches_file" | cut -d':' -f1)"
-reinstagram_included_start="$(grep -n -m1 'ReInstagram included patches' "$patches_file" | cut -d':' -f1)"
-reinstagram_excluded_start="$(grep -n -m1 'ReInstagram excluded patches' "$patches_file" | cut -d':' -f1)"
 
 revanced_included_patches="$(tail -n +$revanced_included_start $patches_file | head -n "$(( revanced_excluded_start - revanced_included_start ))" | grep '^[^#[:blank:]]')"
 revanced_excluded_patches="$(tail -n +$revanced_excluded_start $patches_file | grep '^[^#[:blank:]]')"
@@ -25,8 +23,6 @@ retwitter_included_patches="$(tail -n +$retwitter_included_start $patches_file |
 retwitter_excluded_patches="$(tail -n +$retwitter_excluded_start $patches_file | grep '^[^#[:blank:]]')"
 rereddit_included_patches="$(tail -n +$rereddit_included_start $patches_file | head -n "$(( rereddit_excluded_start - rereddit_included_start ))" | grep '^[^#[:blank:]]')"
 rereddit_excluded_patches="$(tail -n +$rereddit_excluded_start $patches_file | grep '^[^#[:blank:]]')"
-reinstagram_included_patches="$(tail -n +$reinstagram_included_start $patches_file | head -n "$(( reinstagram_excluded_start - reinstagram_included_start ))" | grep '^[^#[:blank:]]')"
-reinstagram_excluded_patches="$(tail -n +$reinstagram_excluded_start $patches_file | grep '^[^#[:blank:]]')"
 
 echo "Declaring variable(s)"
 declare -A artifacts
@@ -35,7 +31,6 @@ declare -a retwitch_patches
 declare -a retiktok_patches
 declare -a retwitter_patches
 declare -a rereddit_patches
-declare -a reinstagram_patches
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
 artifacts["revanced-integrations.apk"]="revanced/revanced-integrations revanced-integrations .apk"
@@ -89,14 +84,6 @@ populate_rereddit-patches()
     done <<< "$2"
 }
 
-populate_reinstagram-patches()
-{
-    while read -r reinstagram__patches
-    do
-        reinstagram_patches+=("$1 $reinstagram__patches")
-    done <<< "$2"
-}
-
 echo "Cleaning up"
 if [[ "$1" == "clean" ]]
     then
@@ -124,8 +111,6 @@ done
 [[ ! -z "$retwitter_excluded_patches" ]] && populate_retwitter-patches "-e" "$retwitter_excluded_patches"
 [[ ! -z "$rereddit_included_patches" ]] && populate_rereddit-patches "-i" "$rereddit_included_patches"
 [[ ! -z "$rereddit_excluded_patches" ]] && populate_rereddit-patches "-e" "$rereddit_excluded_patches"
-[[ ! -z "$reinstagram_included_patches" ]] && populate_reinstagram-patches "-i" "$reinstagram_included_patches"
-[[ ! -z "$reinstagram_excluded_patches" ]] && populate_reinstagram-patches "-e" "$reinstagram_excluded_patches"
 
 echo "Preparing"
 mkdir -p output
@@ -138,7 +123,7 @@ if [ -f "com.google.android.youtube.apk" ]
 then
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${revanced_patches[@]} \
-                               -a com.google.android.youtube.apk -o output/revanced.apk
+                               -a com.google.android.youtube.apk -o "output/revanced_v$(cat versions.json | grep -oP '(?<="com.google.android.youtube.apk": ")[^"]*').apk"
 else
     echo "Cannot find YouTube base package, skip compiling"
 fi
@@ -151,7 +136,7 @@ if [ -f "com.google.android.apps.youtube.music.apk" ]
 then
     java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${revanced_patches[@]} \
-                               -a com.google.android.apps.youtube.music.apk -o output/revanced-music.apk
+                               -a com.google.android.apps.youtube.music.apk -o "output/revanced-music_v$(cat versions.json | grep -oP '(?<="com.google.android.apps.youtube.music.apk": ")[^"]*').apk"
 else
     echo "Cannot find YouTube Music base package, skip compiling"
 fi
@@ -164,7 +149,7 @@ if [ -f "tv.twitch.android.app.apk" ]
 then
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${retwitch_patches[@]} \
-                               -a tv.twitch.android.app.apk -o output/retwitch.apk
+                               -a tv.twitch.android.app.apk -o "output/retwitch_v$(cat versions.json | grep -oP '(?<="tv.twitch.android.app.apk": ")[^"]*').apk"
 else
     echo "Cannot find Twitch base package, skip compiling"
 fi
@@ -177,7 +162,7 @@ if [ -f "com.ss.android.ugc.trill.apk" ]
 then
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${retiktok_patches[@]} \
-                               -a com.ss.android.ugc.trill.apk -o output/retiktok.apk
+                               -a com.ss.android.ugc.trill.apk -o "output/retiktok_v$(cat versions.json | grep -oP '(?<="com.ss.android.ugc.trill.apk": ")[^"]*').apk"
 else
     echo "Cannot find TikTok base package, skip compiling"
 fi
@@ -190,7 +175,7 @@ if [ -f "com.twitter.android.apk" ]
 then
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${retwitter_patches[@]} \
-                               -a com.twitter.android.apk -o output/retwitter.apk
+                               -a com.twitter.android.apk -o "output/retwitter_v$(cat versions.json | grep -oP '(?<="com.twitter.android.apk.apk": ")[^"]*').apk"
 else
     echo "Cannot find Twitter base package, skip compiling"
 fi
@@ -203,22 +188,9 @@ if [ -f "com.reddit.frontpage.apk" ]
 then
     java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
                                ${rereddit_patches[@]} \
-                               -a com.reddit.frontpage.apk -o output/rereddit.apk
+                               -a com.reddit.frontpage.apk -o "output/rereddit_v$(cat versions.json | grep -oP '(?<="com.reddit.frontpage.apk": ")[^"]*').apk"
 else
     echo "Cannot find Reddit base package, skip compiling"
-fi
-}
-
-function build_reinstagram()
-{
-echo "Compiling ReInstagram"
-if [ -f "com.instagram.android.apk" ]
-then
-    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
-                               ${reinstagram_patches[@]} \
-                               -a com.instagram.android.apk -o output/reinstagram.apk
-else
-    echo "Cannot find Instagram base package, skip compiling"
 fi
 }
 
@@ -264,13 +236,6 @@ then
 	build_rereddit
 else
 	echo "Skipping ReReddit"
-fi
-
-if [ "$BUILD_REINSTAGRAM" = "true" ];
-then
-	build_reinstagram
-else
-	echo "Skipping ReInstagram"
 fi
 
 echo "Done compiling"
