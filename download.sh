@@ -10,7 +10,6 @@ apks["tv.twitch.android.app.apk"]=dl_twitch
 apks["com.ss.android.ugc.trill.apk"]=dl_tiktok
 apks["com.twitter.android.apk"]=dl_twitter
 apks["com.reddit.frontpage.apk"]=dl_reddit
-apks["com.instagram.android.apk"]=dl_instagram
 
 WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
 ARM_V7A="arm-v7a"
@@ -178,32 +177,6 @@ dl_reddit()
                 "APK</span>[^@]*@\([^#]*\)" \
                 "$base_apk")
         echo "Downloaded Reddit v${last_ver} from [APKMirror]($dl_url)"
-    fi
-}
-
-dl_instagram()
-{
-    local arch=$ARM64_V8A
-    echo "Downloading Instagram (${arch})"
-    local last_ver
-    last_ver="$version"
-    last_ver="${last_ver:-$(get_apk_vers "https://www.apkmirror.com/uploads/?appcategory=instagram-instagram" | get_largest_ver)}"
-
-    echo "Selected version: ${last_ver}"
-    local base_apk="com.instagram.android.apk"
-    if [ ! -f "$base_apk" ]
-    then
-        if [ "$arch" = "$ARM_V7A" ]
-	then
-            local regexp_arch='armeabi-v7a</div>[^@]*@\([^"]*\)'
-	elif [ "$arch" = "$ARM64_V8A" ]
-	then
-            local regexp_arch='arm64-v8a</div>[^@]*@\([^"]*\)'
-        fi
-        declare -r dl_url=$(dl_apk "https://www.apkmirror.com/apk/instagram/instagram-instagram/instagram-instagram-${last_ver//./-}-release/" \
-                "$regexp_arch" \
-                "$base_apk")
-        echo "Downloaded Instagram (${arch}) v${last_ver} from [APKMirror]($dl_url)"
     fi
 }
 
