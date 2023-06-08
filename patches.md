@@ -6,7 +6,6 @@ codecs-unlock
 exclusive-audio-playback
 general-ads
 hdr-auto-brightness
-hide-get-premium
 minimized-playback
 minimized-playback-music
 music-microg-support
@@ -37,8 +36,8 @@ disable-fullscreen-panels
 disable-player-popup-panels
 disable-shorts-on-startup
 disable-zoom-haptics
-downloads
 enable-debugging
+external-downloads
 hide-album-cards
 hide-artist-card
 hide-autoplay-button
@@ -48,11 +47,14 @@ hide-cast-button
 hide-crowdfunding-box
 hide-email-address
 hide-endscreen-cards
+hide-filter-bar
 hide-floating-microphone-button
 hide-info-cards
+hide-load-more-button
 hide-player-buttons
 hide-player-overlay
 hide-seekbar
+hide-shorts-components
 hide-timestamp
 hide-video-action-buttons
 hide-watch-in-vr
@@ -65,6 +67,7 @@ tasteBuilder-remover
 theme
 wide-searchbar
 # ReTwitch included patches
+auto-claim-channel-points
 block-audio-ads
 block-embedded-ads
 block-video-ads
@@ -95,5 +98,6 @@ predictive-back-gesture
 general-reddit-ads
 hide-subreddit-banner
 premium-icon-reddit
+sanitize-sharing-links
 # ReReddit excluded patches
 predictive-back-gesture
