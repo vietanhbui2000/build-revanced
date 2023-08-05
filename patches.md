@@ -18,6 +18,7 @@ premium-heading
 remember-video-quality
 return-youtube-dislike
 seekbar-tapping
+settings
 sponsorblock
 upgrade-button-remover
 vanced-microg-support
