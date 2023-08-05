@@ -13,40 +13,40 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: 'ubuntu-22.04'
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@main
+    - name: 'Checkout'
+      uses: 'actions/checkout@main'
 
-    - name: Setup Java
-      uses: actions/setup-java@v3.10.0
+    - name: 'Setup Java'
+      uses: 'actions/setup-java@v3.12.0'
       with:
-        distribution: "zulu"
-        java-version: "17"
-        java-package: jdk
+        distribution: 'zulu'
+        java-version: '17'
+        java-package: 'jdk'
 
-    - name: Download base packages
+    - name: 'Download base packages'
       run: |
         chmod +x download.sh
         ./download.sh
 
-    - name: Compile packages
+    - name: 'Compile packages'
       env:
-        CN: ${{ secrets.KEYSTORE_CN }}
-        PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        CN: '${{ secrets.KEYSTORE_CN }}'
+        PASSWORD: '${{ secrets.KEYSTORE_PASSWORD }}'
       run: |
         chmod +x compile.sh
         ./compile.sh "$CN" "$PASSWORD"
         echo "date_now=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
-    - name: Upload packages
-      uses: softprops/action-gh-release@v0.1.15
+    - name: 'Upload packages'
+      uses: 'marvinpinto/action-automatic-releases@v1.2.1'
       with:
-        token: "${{ secrets.GITHUB_TOKEN }}"
-        tag_name: "latest"
-        prerelease: true
-        name: "ReVanced r${{ env.date_now }}"
+        repo_token: '${{ secrets.GITHUB_TOKEN }}'
+        automatic_release_tag: 'latest'
+        draft: true
+        title: 'ReVanced r${{ env.date_now }}'
         files: |
           output/*.keystore
           output/*.apk
