@@ -8,10 +8,6 @@ retwitch_included_start="$(grep -n -m1 'ReTwitch included patches' "$patches_fil
 retwitch_excluded_start="$(grep -n -m1 'ReTwitch excluded patches' "$patches_file" | cut -d':' -f1)"
 retiktok_included_start="$(grep -n -m1 'ReTikTok included patches' "$patches_file" | cut -d':' -f1)"
 retiktok_excluded_start="$(grep -n -m1 'ReTikTok excluded patches' "$patches_file" | cut -d':' -f1)"
-retwitter_included_start="$(grep -n -m1 'ReTwitter included patches' "$patches_file" | cut -d':' -f1)"
-retwitter_excluded_start="$(grep -n -m1 'ReTwitter excluded patches' "$patches_file" | cut -d':' -f1)"
-rereddit_included_start="$(grep -n -m1 'ReReddit included patches' "$patches_file" | cut -d':' -f1)"
-rereddit_excluded_start="$(grep -n -m1 'ReReddit excluded patches' "$patches_file" | cut -d':' -f1)"
 
 revanced_included_patches="$(tail -n +$revanced_included_start $patches_file | head -n "$(( revanced_excluded_start - revanced_included_start ))" | grep '^[^#[:blank:]]')"
 revanced_excluded_patches="$(tail -n +$revanced_excluded_start $patches_file | grep '^[^#[:blank:]]')"
@@ -19,18 +15,12 @@ retwitch_included_patches="$(tail -n +$retwitch_included_start $patches_file | h
 retwitch_excluded_patches="$(tail -n +$retwitch_excluded_start $patches_file | grep '^[^#[:blank:]]')"
 retiktok_included_patches="$(tail -n +$retiktok_included_start $patches_file | head -n "$(( retiktok_excluded_start - retiktok_included_start ))" | grep '^[^#[:blank:]]')"
 retiktok_excluded_patches="$(tail -n +$retiktok_excluded_start $patches_file | grep '^[^#[:blank:]]')"
-retwitter_included_patches="$(tail -n +$retwitter_included_start $patches_file | head -n "$(( retwitter_excluded_start - retwitter_included_start ))" | grep '^[^#[:blank:]]')"
-retwitter_excluded_patches="$(tail -n +$retwitter_excluded_start $patches_file | grep '^[^#[:blank:]]')"
-rereddit_included_patches="$(tail -n +$rereddit_included_start $patches_file | head -n "$(( rereddit_excluded_start - rereddit_included_start ))" | grep '^[^#[:blank:]]')"
-rereddit_excluded_patches="$(tail -n +$rereddit_excluded_start $patches_file | grep '^[^#[:blank:]]')"
 
 echo "Declaring variable(s)"
 declare -A artifacts
 declare -a revanced_patches
 declare -a retwitch_patches
 declare -a retiktok_patches
-declare -a retwitter_patches
-declare -a rereddit_patches
 
 artifacts["revanced-cli.jar"]="revanced/revanced-cli revanced-cli .jar"
 artifacts["revanced-integrations.apk"]="revanced/revanced-integrations revanced-integrations .apk"
@@ -68,22 +58,6 @@ populate_retiktok-patches()
     done <<< "$2"
 }
 
-populate_retwitter-patches()
-{
-    while read -r retwitter__patches
-    do
-        retwitter_patches+=("$1 $retwitter__patches")
-    done <<< "$2"
-}
-
-populate_rereddit-patches()
-{
-    while read -r rereddit__patches
-    do
-        rereddit_patches+=("$1 $rereddit__patches")
-    done <<< "$2"
-}
-
 echo "Cleaning up"
 if [[ "$1" == "clean" ]]
     then
@@ -107,10 +81,6 @@ done
 [[ ! -z "$retwitch_excluded_patches" ]] && populate_retwitch-patches "-e" "$retwitch_excluded_patches"
 [[ ! -z "$retiktok_included_patches" ]] && populate_retiktok-patches "-i" "$retiktok_included_patches"
 [[ ! -z "$retiktok_excluded_patches" ]] && populate_retiktok-patches "-e" "$retiktok_excluded_patches"
-[[ ! -z "$retwitter_included_patches" ]] && populate_retwitter-patches "-i" "$retwitter_included_patches"
-[[ ! -z "$retwitter_excluded_patches" ]] && populate_retwitter-patches "-e" "$retwitter_excluded_patches"
-[[ ! -z "$rereddit_included_patches" ]] && populate_rereddit-patches "-i" "$rereddit_included_patches"
-[[ ! -z "$rereddit_excluded_patches" ]] && populate_rereddit-patches "-e" "$rereddit_excluded_patches"
 
 echo "Preparing"
 mkdir -p output
@@ -168,32 +138,6 @@ else
 fi
 }
 
-function build_retwitter()
-{
-echo "Compiling ReTwitter"
-if [ -f "com.twitter.android.apk" ]
-then
-    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
-                               ${retwitter_patches[@]} \
-                               -a com.twitter.android.apk -o "output/retwitter_v$(cat versions.json | grep -oP '(?<="com.twitter.android.apk.apk": ")[^"]*').apk"
-else
-    echo "Cannot find Twitter base package, skip compiling"
-fi
-}
-
-function build_rereddit()
-{
-echo "Compiling ReReddit"
-if [ -f "com.reddit.frontpage.apk" ]
-then
-    java -jar revanced-cli.jar -b revanced-patches.jar --keystore=keystore.keystore --cn=$CN --password=$PASSWORD \
-                               ${rereddit_patches[@]} \
-                               -a com.reddit.frontpage.apk -o "output/rereddit_v$(cat versions.json | grep -oP '(?<="com.reddit.frontpage.apk": ")[^"]*').apk"
-else
-    echo "Cannot find Reddit base package, skip compiling"
-fi
-}
-
 source configs.md
 
 if [ "$BUILD_REVANCED" = "true" ];
@@ -222,20 +166,6 @@ then
 	build_retiktok
 else
 	echo "Skipping ReTikTok"
-fi
-
-if [ "$BUILD_RETWITTER" = "true" ];
-then
-	build_retwitter
-else
-	echo "Skipping ReTwitter"
-fi
-
-if [ "$BUILD_REREDDIT" = "true" ];
-then
-	build_rereddit
-else
-	echo "Skipping ReReddit"
 fi
 
 echo "Done compiling"
