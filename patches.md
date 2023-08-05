@@ -4,21 +4,20 @@ bypass-certificate-checks
 client-spoof
 codecs-unlock
 exclusive-audio-playback
-general-ads
 hdr-auto-brightness
+hide-ads
+hide-get-premium
 minimized-playback
 minimized-playback-music
-music-microg-support
 music-video-ads
 navigation-buttons
-old-quality-layout
+old-video-quality-menu
 open-links-externally
+playback-speed
 premium-heading
-remember-playback-speed
 remember-video-quality
 return-youtube-dislike
 seekbar-tapping
-settings
 sponsorblock
 upgrade-button-remover
 vanced-microg-support
@@ -29,8 +28,6 @@ comments
 compact-header
 copy-video-url
 custom-branding
-custom-video-buffer
-custom-video-speed
 disable-auto-captions
 disable-fullscreen-panels
 disable-player-popup-panels
@@ -39,7 +36,6 @@ disable-zoom-haptics
 enable-debugging
 external-downloads
 hide-album-cards
-hide-artist-card
 hide-autoplay-button
 hide-breaking-news-shelf
 hide-captions-button
@@ -50,6 +46,7 @@ hide-endscreen-cards
 hide-filter-bar
 hide-floating-microphone-button
 hide-info-cards
+hide-layout-components
 hide-load-more-button
 hide-player-buttons
 hide-player-overlay
@@ -57,13 +54,12 @@ hide-seekbar
 hide-shorts-components
 hide-timestamp
 hide-video-action-buttons
-hide-watch-in-vr
 hide-watermark
-remove-player-button-background
+player-flyout-menu
+remove-player-controls-background
 spoof-app-version
 swipe-controls
 tablet-mini-player
-tasteBuilder-remover
 theme
 wide-searchbar
 # ReTwitch included patches
