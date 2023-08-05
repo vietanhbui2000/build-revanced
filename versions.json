@@ -1,9 +1,7 @@
 {
     "com.mgoogle.android.gms.apk": "0.2.24.220220",
-    "com.google.android.youtube.apk": "18.19.35",
-    "com.google.android.apps.youtube.music.apk": "5.39.52",
-    "tv.twitch.android.app.apk": "14.6.1",
-    "com.ss.android.ugc.trill.apk": "29.8.4",
-    "com.twitter.android.apk": "9.91.0-release.0",
-    "com.reddit.frontpage.apk": "2023.22.0"
+    "com.google.android.youtube.apk": "18.23.35",
+    "com.google.android.apps.youtube.music.apk": "6.13.52",
+    "tv.twitch.android.app.apk": "15.4.1",
+    "com.ss.android.ugc.trill.apk": "30.7.3"
 }
