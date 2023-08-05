@@ -86,18 +86,3 @@ settings
 show-seekbar
 sim-spoof
 # ReTikTok excluded patches
-
-# ReTwitter included patches
-dynamic-color
-hide-ads
-hide-recommended-users
-# ReTwitter excluded patches
-hide-views-stats
-predictive-back-gesture
-# ReReddit included patches
-general-reddit-ads
-hide-subreddit-banner
-premium-icon-reddit
-sanitize-sharing-links
-# ReReddit excluded patches
-predictive-back-gesture
